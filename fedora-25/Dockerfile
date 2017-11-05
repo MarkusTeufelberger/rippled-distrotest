@@ -1,0 +1,41 @@
+FROM fedora:25
+
+# Update the OS to current packages, install dependencies, clone repo
+RUN  dnf -y upgrade --refresh \
+  && dnf -y install \
+          git \
+          scons \
+          cmake \
+          ninja-build \
+          clang \
+          libstdc++-devel \
+          libstdc++-static \
+          libasan \
+          libasan-static \
+          libtsan \
+          libtsan-static \
+          pkgconfig \
+          protobuf-compiler \
+          protobuf-devel \
+          protobuf-static \
+          openssl-libs \
+          openssl-static \
+          boost-devel \
+          boost-static \
+  && git clone https://github.com/ripple/rippled.git /rippled \
+  && ln /usr/bin/ninja-build /usr/bin/ninja \
+  && git --version \
+  && bash --version \
+  && cmake --version \
+  && lscpu --version \
+  && grep --version \
+  && scons --version \
+  && ninja --version \
+  && pkg-config --version \
+  && gcc --version \
+  && clang --version \
+  && protoc --version
+
+WORKDIR /rippled/Builds
+
+CMD ["/bin/bash", "/rippled/Builds/build_all.sh"]

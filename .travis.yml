@@ -1,0 +1,39 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  - DISTRO=alpine-3.5
+  - DISTRO=alpine-3.6
+  - DISTRO=alpine-edge
+  - DISTRO=archlinux
+  - DISTRO=centos-7
+  - DISTRO=debian-buster
+  - DISTRO=debian-jessie
+  - DISTRO=debian-sid
+  - DISTRO=debian-stretch
+  - DISTRO=fedora-25
+  - DISTRO=fedora-26
+  - DISTRO=fedora-rawhide
+  - DISTRO=opensuse-42.3
+  - DISTRO=opensuse-tumbleweed
+  - DISTRO=ubuntu-16.04
+  - DISTRO=ubuntu-17.04
+  - DISTRO=ubuntu-17.10
+
+jobs:
+  include:
+    - stage: default_scons
+      - cd $(DISTRO)
+      - docker build --no-cache -t rippled/$(DISTRO) .
+      - docker run --rm -t rippled/$(DISTRO) /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    - stage: default_cmake
+      script: 
+      - cd $(DISTRO)
+      - docker build --no-cache -t rippled/$(DISTRO) .
+      - docker run --rm -t rippled/$(DISTRO) /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    - stage: build_all
+      - cd $(DISTRO)
+      - docker build --no-cache -t rippled/$(DISTRO) .
+      - docker run --rm -t rippled/$(DISTRO)
