@@ -72,13 +72,16 @@ jobs:
     #   - cd $DISTRO
     #   - docker build --no-cache -t rippled/$DISTRO .
     #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=debian-sid
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Wait for https://github.com/ripple/rippled/pull/2259
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=debian-sid
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     - stage: default_scons
       env:
         - DISTRO=debian-stretch
@@ -100,13 +103,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=fedora-rawhide
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Wait for https://github.com/ripple/rippled/pull/2259
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=fedora-rawhide
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     - stage: default_scons
       env:
         - DISTRO=opensuse-42.3
@@ -186,16 +192,13 @@ jobs:
     #   - cd $DISTRO
     #   - docker build --no-cache -t rippled/$DISTRO .
     #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    #
-    # Wait for https://github.com/ripple/rippled/pull/2259
-    #
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=debian-buster
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    - stage: default_cmake
+      env:
+        - DISTRO=debian-buster
+      script:
+      - cd $DISTRO
+      - docker build --no-cache -t rippled/$DISTRO .
+      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     #
     # Debian Jessie ships with Boost 1.55, which is too old for rippled
     #
