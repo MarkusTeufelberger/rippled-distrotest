@@ -244,20 +244,23 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=opensuse-42.3
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=opensuse-tumbleweed
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    #
+    # OpenSUSE doesn't ship static boost libraries but rippled currently enforces it
+    #
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=opensuse-42.3
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=opensuse-tumbleweed
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     - stage: default_cmake
       env:
         - DISTRO=ubuntu-16.04
