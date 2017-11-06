@@ -23,7 +23,6 @@ RUN  dnf -y upgrade --refresh \
           boost-devel \
           boost-static \
   && git clone https://github.com/ripple/rippled.git /rippled \
-  && ln /usr/bin/ninja-build /usr/bin/ninja \
   && git --version \
   && bash --version \
   && cmake --version \
