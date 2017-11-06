@@ -6,6 +6,7 @@ RUN  pacman -Syu --noconfirm \
             grep \
             git \
             cmake \
+            make \
             scons \
             ninja \
             clang \
@@ -17,6 +18,7 @@ RUN  pacman -Syu --noconfirm \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
+  && make --version \
   && cmake --version \
   && lscpu --version \
   && grep --version \
