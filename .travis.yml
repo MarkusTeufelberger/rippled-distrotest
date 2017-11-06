@@ -56,13 +56,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=debian-jessie
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Debian Jessie ships with Boost 1.55, which is too old for rippled
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=debian-jessie
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     - stage: default_scons
       env:
         - DISTRO=debian-sid
@@ -181,13 +184,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=debian-jessie
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    #
+    # Debian Jessie ships with Boost 1.55, which is too old for rippled
+    #
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=debian-jessie
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     - stage: default_cmake
       env:
         - DISTRO=debian-sid
