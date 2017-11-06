@@ -39,13 +39,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=centos-7
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # CentOS 7 only ships gcc 4.8, which doesn't support C++14
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=centos-7
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     - stage: default_scons
       env:
         - DISTRO=debian-buster
@@ -161,13 +164,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=centos-7
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    #
+    # CentOS 7 only ships gcc 4.8, which doesn't support C++14
+    #
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=centos-7
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     - stage: default_cmake
       env:
         - DISTRO=debian-buster
