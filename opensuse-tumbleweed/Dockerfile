@@ -9,12 +9,12 @@ RUN  zypper --non-interactive update \
             gcc \
             clang \
             ninja \
-            libasan3 \
+            libasan4 \
             libtsan0 \
             pkg-config \
             protobuf-devel \
             protobuf-c \
-            boost_1_63-devel \
+            boost_1_65-devel \
             libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
