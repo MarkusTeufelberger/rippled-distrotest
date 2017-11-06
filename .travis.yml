@@ -11,27 +11,30 @@ jobs:
     #
     # scons default builds
     #
-    - stage: default_scons
-      env:
-        - DISTRO=alpine-3.5
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=alpine-3.6
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=alpine-edge
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Rippled does not build with musl without compatibility patches atm.
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=alpine-3.5
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=alpine-3.6
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=alpine-edge
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     - stage: default_scons
       env:
         - DISTRO=archlinux
@@ -49,13 +52,16 @@ jobs:
     #   - cd $DISTRO
     #   - docker build --no-cache -t rippled/$DISTRO .
     #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=debian-buster
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Wait for https://github.com/ripple/rippled/pull/2259
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=debian-buster
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     #
     # Debian Jessie ships with Boost 1.55, which is too old for rippled
     #
@@ -139,27 +145,30 @@ jobs:
     #
     # cmake default builds
     #
-    - stage: default_cmake
-      env:
-        - DISTRO=alpine-3.5
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=alpine-3.6
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=alpine-edge
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    #
+    # Rippled does not build with musl without compatibility patches atm.
+    #
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=alpine-3.5
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=alpine-3.6
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=alpine-edge
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     - stage: default_cmake
       env:
         - DISTRO=archlinux
@@ -177,13 +186,16 @@ jobs:
     #   - cd $DISTRO
     #   - docker build --no-cache -t rippled/$DISTRO .
     #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=debian-buster
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    #
+    # Wait for https://github.com/ripple/rippled/pull/2259
+    #
+    # - stage: default_cmake
+    #   env:
+    #     - DISTRO=debian-buster
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
     #
     # Debian Jessie ships with Boost 1.55, which is too old for rippled
     #
