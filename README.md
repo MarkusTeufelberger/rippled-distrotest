@@ -17,7 +17,7 @@ Status at the moment:
 Upstream: https://pkgs.alpinelinux.org/package/edge/testing/x86_64/rippled
 
 One of the few distros that at least have an actual rippled package upstream (in edge/testing).
-It requires a few patches that still weren't accepted in rippled so far.
+It requires a few patches that still weren't accepted in rippled so far (https://github.com/alpinelinux/aports/tree/master/testing/rippled).
 
 ### 3.5
 
@@ -33,7 +33,7 @@ Requires musl compatibility patches in RocksDB and rippled (beast).
 
 Upstream: https://aur.archlinux.org/packages/rippled/
 
-Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least seom build script is available and maintained.
+Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
 
 ## CentOS/RHEL
 
@@ -74,6 +74,10 @@ No backports are available, but rippled builds on newer Debian versions.
 ...
 
 ### 26
+
+...
+
+### 27
 
 ...
 
