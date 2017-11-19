@@ -103,6 +103,13 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    - stage: default_scons
+      env:
+        - DISTRO=fedora-27
+      script:
+      - cd $DISTRO
+      - docker build --no-cache -t rippled/$DISTRO .
+      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     #
     # Wait for https://github.com/ripple/rippled/pull/2259
     #
@@ -233,6 +240,13 @@ jobs:
     - stage: default_cmake
       env:
         - DISTRO=fedora-26
+      script:
+      - cd $DISTRO
+      - docker build --no-cache -t rippled/$DISTRO .
+      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
+    - stage: default_cmake
+      env:
+        - DISTRO=fedora-27
       script:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
