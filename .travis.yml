@@ -126,6 +126,6 @@ before_install:
   - docker build -t rippled/$DISTRO .
 
 script:
-  - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && num_procs=$(lscpu -p | grep -v '^#' | sort -u -t, -k 2,4 | wc -l) ./Builds/Test.py $TEST_PY_OPTS -- -j$num_procs"
+  - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && export num_procs=$(lscpu -p | grep -v '^#' | sort -u -t, -k 2,4 | wc -l) && ./Builds/Test.py $TEST_PY_OPTS -- -j$num_procs"
   # This takes FAR too long for Travis-ci:
   # - docker run --rm -t rippled/$DISTRO /bin/bash -c "./build_all.sh"
