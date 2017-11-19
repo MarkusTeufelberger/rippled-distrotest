@@ -3,443 +3,110 @@ sudo: required
 services:
   - docker
 
-jobs:
-  include:
-    # Travis doesn't seem to be able to do matrix expansion per build stage... yet?
-    # Manually expand for now
+env:
+  # default build
+  - DISTRO=alpine-3.5           TEST_PY_OPTS=""
+  - DISTRO=alpine-3.6           TEST_PY_OPTS=""
+  - DISTRO=alpine-edge          TEST_PY_OPTS=""
+  - DISTRO=archlinux            TEST_PY_OPTS=""
+  - DISTRO=centos-7             TEST_PY_OPTS=""
+  - DISTRO=debian-buster        TEST_PY_OPTS=""
+  - DISTRO=debian-jessie        TEST_PY_OPTS=""
+  - DISTRO=debian-sid           TEST_PY_OPTS=""
+  - DISTRO=debian-stretch       TEST_PY_OPTS=""
+  - DISTRO=fedora-25            TEST_PY_OPTS=""
+  - DISTRO=fedora-26            TEST_PY_OPTS=""
+  - DISTRO=fedora-27            TEST_PY_OPTS=""
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS=""
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS=""
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS=""
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS=""
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS=""
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS=""
+  # default cmake build
+  - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake"
+  - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake"
+  - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake"
+  - DISTRO=archlinux            TEST_PY_OPTS="--cmake"
+  - DISTRO=centos-7             TEST_PY_OPTS="--cmake"
+  - DISTRO=debian-buster        TEST_PY_OPTS="--cmake"
+  - DISTRO=debian-jessie        TEST_PY_OPTS="--cmake"
+  - DISTRO=debian-sid           TEST_PY_OPTS="--cmake"
+  - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake"
+  - DISTRO=fedora-25            TEST_PY_OPTS="--cmake"
+  - DISTRO=fedora-26            TEST_PY_OPTS="--cmake"
+  - DISTRO=fedora-27            TEST_PY_OPTS="--cmake"
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS="--cmake"
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS="--cmake"
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS="--cmake"
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake"
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake"
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake"
+  # scons clang release build
+  - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release"
+  - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release"
+  - DISTRO=alpine-edge          TEST_PY_OPTS="-- clang.release"
+  - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release"
+  - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release"
+  - DISTRO=debian-buster        TEST_PY_OPTS="-- clang.release"
+  - DISTRO=debian-jessie        TEST_PY_OPTS="-- clang.release"
+  - DISTRO=debian-sid           TEST_PY_OPTS="-- clang.release"
+  - DISTRO=debian-stretch       TEST_PY_OPTS="-- clang.release"
+  - DISTRO=fedora-25            TEST_PY_OPTS="-- clang.release"
+  - DISTRO=fedora-26            TEST_PY_OPTS="-- clang.release"
+  - DISTRO=fedora-27            TEST_PY_OPTS="-- clang.release"
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS="-- clang.release"
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS="-- clang.release"
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS="-- clang.release"
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.release"
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.release"
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.release"
+  # cmake release build
+  - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=debian-buster        TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=debian-jessie        TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=debian-sid           TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=fedora-25            TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=fedora-26            TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=fedora-27            TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake --target clang.release --dir clang.release"
+  # scons clang release nounity ninja build with ASAN
+  - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=alpine-edge          TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=debian-buster        TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=debian-jessie        TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=debian-sid           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=debian-stretch       TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=fedora-25            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=fedora-26            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=fedora-27            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
 
-    #
-    # scons default builds
-    #
-    #
-    # Rippled does not build with musl without compatibility patches atm.
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=alpine-3.5
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=alpine-3.6
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=alpine-edge
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=archlinux
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # CentOS 7 only ships gcc 4.8, which doesn't support C++14
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=centos-7
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # Wait for https://github.com/ripple/rippled/pull/2259
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=debian-buster
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # Debian Jessie ships with Boost 1.55, which is too old for rippled
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=debian-jessie
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # Wait for https://github.com/ripple/rippled/pull/2269
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=debian-sid
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=debian-stretch
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=fedora-25
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=fedora-26
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # Wait for https://github.com/ripple/rippled/pull/2269
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=fedora-27
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # Wait for https://github.com/ripple/rippled/pull/2259
-    #
-    # - stage: default_scons
-    #   env:
-    #     - DISTRO=fedora-rawhide
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=opensuse-42.3
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=opensuse-tumbleweed
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=ubuntu-16.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=ubuntu-17.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=ubuntu-17.10
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    #
-    # cmake default builds
-    #
-    #
-    # Rippled does not build with musl without compatibility patches atm.
-    #
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=alpine-3.5
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=alpine-3.6
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=alpine-edge
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=archlinux
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    #
-    # CentOS 7 only ships gcc 4.8, which doesn't support C++14
-    #
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=centos-7
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=debian-buster
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    #
-    # Debian Jessie ships with Boost 1.55, which is too old for rippled
-    #
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=debian-jessie
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=debian-sid
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=debian-stretch
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=fedora-25
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=fedora-26
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=fedora-27
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=fedora-rawhide
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    #
-    # OpenSUSE doesn't ship static boost libraries but rippled currently enforces it
-    #
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=opensuse-42.3
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    # - stage: default_cmake
-    #   env:
-    #     - DISTRO=opensuse-tumbleweed
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=ubuntu-16.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=ubuntu-17.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    - stage: default_cmake
-      env:
-        - DISTRO=ubuntu-17.10
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "mkdir /rippled/build && cd /rippled/build && cmake .. && cmake --build . && /rippled/build/rippled -u"
-    #
-    # scons ninja release.nounity builds
-    #
-    #
-    # Rippled does not build with musl without compatibility patches atm.
-    #
-    # - stage: ninja_release_nounity_scons
-    #   env:
-    #     - DISTRO=alpine-3.5
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    # - stage: ninja_release_nounity_scons
-    #   env:
-    #     - DISTRO=alpine-3.6
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    # - stage: ninja_release_nounity_scons
-    #   env:
-    #     - DISTRO=alpine-edge
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=archlinux
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    #
-    # CentOS 7 only ships gcc 4.8, which doesn't support C++14
-    #
-    # - stage: ninja_release_nounity_scons
-    #   env:
-    #     - DISTRO=centos-7
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=debian-buster
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    #
-    # Debian Jessie ships with Boost 1.55, which is too old for rippled
-    #
-    # - stage: ninja_release_nounity_scons
-    #   env:
-    #     - DISTRO=debian-jessie
-    #   script:
-    #   - cd $DISTRO
-    #   - docker build --no-cache -t rippled/$DISTRO .
-    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=debian-sid
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=debian-stretch
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=fedora-25
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=fedora-26
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=fedora-27
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=fedora-rawhide
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=opensuse-42.3
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=opensuse-tumbleweed
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=ubuntu-16.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=ubuntu-17.04
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    - stage: ninja_release_nounity_scons
-      env:
-        - DISTRO=ubuntu-17.10
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled/build && scons --ninja release.nounity && ninja && /rippled/build/rippled -u"
-    # This is too expensive for travis
-    #- stage: build_all
-    #  script:
-    #  - cd $DISTRO
-    #  - docker build --no-cache -t rippled/$DISTRO .
-    #  - docker run --rm -t rippled/$DISTRO
+before_install:
+  - cd $DISTRO
+  # --no-cache might not be necessary
+  # - docker build --no-cache -t rippled/$DISTRO .
+  - docker build -t rippled/$DISTRO .
+
+script:
+  - docker run --rm -t rippled/$DISTRO /bin/bash -c "./Test.py $TEST_PY_OPTS"
+  # This takes FAR too long for Travis-ci:
+  # - docker run --rm -t rippled/$DISTRO /bin/bash -c "./build_all.sh"
