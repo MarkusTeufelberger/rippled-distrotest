@@ -99,6 +99,25 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  # scons gcc static coverage build with TSAN and asserts enabled
+  - DISTRO=alpine-3.5           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=alpine-3.6           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=alpine-edge          TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=archlinux            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=centos-7             TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=debian-buster        TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=debian-jessie        TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=debian-sid           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=debian-stretch       TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=fedora-25            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=fedora-26            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=fedora-27            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=fedora-rawhide       TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=opensuse-42.3        TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=opensuse-tumbleweed  TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
 
 before_install:
   - cd $DISTRO
