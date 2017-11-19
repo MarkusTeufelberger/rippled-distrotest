@@ -73,7 +73,7 @@ jobs:
     #   - docker build --no-cache -t rippled/$DISTRO .
     #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     #
-    # Wait for https://github.com/ripple/rippled/pull/2259
+    # Wait for https://github.com/ripple/rippled/pull/2269
     #
     # - stage: default_scons
     #   env:
@@ -103,13 +103,16 @@ jobs:
       - cd $DISTRO
       - docker build --no-cache -t rippled/$DISTRO .
       - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
-    - stage: default_scons
-      env:
-        - DISTRO=fedora-27
-      script:
-      - cd $DISTRO
-      - docker build --no-cache -t rippled/$DISTRO .
-      - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
+    #
+    # Wait for https://github.com/ripple/rippled/pull/2269
+    #
+    # - stage: default_scons
+    #   env:
+    #     - DISTRO=fedora-27
+    #   script:
+    #   - cd $DISTRO
+    #   - docker build --no-cache -t rippled/$DISTRO .
+    #   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd /rippled && scons && /rippled/build/rippled -u"
     #
     # Wait for https://github.com/ripple/rippled/pull/2259
     #
