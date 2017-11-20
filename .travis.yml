@@ -23,6 +23,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS=""
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS=""
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS=""
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS=""
   # default cmake build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake"
@@ -42,6 +43,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake"
   # scons clang release build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release"
@@ -61,6 +63,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.release"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.release"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.release"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.release"
   # cmake release build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.release"
@@ -80,6 +83,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake --target clang.release"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.release"
     # scons clang debug ninja build with TSAN enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
@@ -99,6 +103,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
     # cmake clang debug ninja build with TSAN enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
@@ -118,6 +123,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   # scons clang release nounity ninja build with ASAN
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
@@ -137,6 +143,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   # cmake clang release nounity ninja build with ASAN
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
@@ -156,6 +163,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   # scons gcc static coverage build with TSAN and asserts enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
@@ -175,6 +183,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
     # cmake gcc static coverage build with TSAN and asserts enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
@@ -194,6 +203,7 @@ env:
   - DISTRO=ubuntu-16.04         TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=ubuntu-17.04         TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=ubuntu-17.10         TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
+  - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
 
 before_install:
   - cd $DISTRO

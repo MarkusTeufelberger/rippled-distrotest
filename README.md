@@ -111,3 +111,7 @@ No deb packages offered though, only rpm.
 ### 17.10
 
 ...
+
+### 18.04
+
+...
