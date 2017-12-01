@@ -212,8 +212,6 @@ before_install:
   - docker build -t rippled/$DISTRO .
 
 script:
-  # Temporary hack until #2273 merges
-  - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && sed -i 's/iteritems()/items()/g' ./Builds/Test.py && ./Builds/Test.py -v $TEST_PY_OPTS"
-  # - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && ./Builds/Test.py -v $TEST_PY_OPTS"
+  - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && ./Builds/Test.py -v $TEST_PY_OPTS"
   # This takes FAR too long for Travis-ci:
   # - docker run --rm -t rippled/$DISTRO /bin/bash -c "./build_all.sh"
