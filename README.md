@@ -27,6 +27,10 @@ Requires musl compatibility patches in RocksDB and rippled (beast).
 
 Requires musl compatibility patches in RocksDB and rippled (beast).
 
+### 3.7
+
+Requires musl compatibility patches in RocksDB and rippled (beast).
+
 ## Arch Linux
 
 ### (Rolling Release)

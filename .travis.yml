@@ -7,6 +7,7 @@ env:
   # default build
   - DISTRO=alpine-3.5           TEST_PY_OPTS=""
   - DISTRO=alpine-3.6           TEST_PY_OPTS=""
+  - DISTRO=alpine-3.7           TEST_PY_OPTS=""
   - DISTRO=alpine-edge          TEST_PY_OPTS=""
   - DISTRO=archlinux            TEST_PY_OPTS=""
   - DISTRO=centos-7             TEST_PY_OPTS=""
@@ -27,6 +28,7 @@ env:
   # default cmake build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="--cmake"
   - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake"
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake"
   - DISTRO=centos-7             TEST_PY_OPTS="--cmake"
@@ -47,6 +49,7 @@ env:
   # scons clang release build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="-- clang.release"
   - DISTRO=alpine-edge          TEST_PY_OPTS="-- clang.release"
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release"
   - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release"
@@ -67,6 +70,7 @@ env:
   # cmake release build
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.release"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.release"
@@ -87,6 +91,7 @@ env:
     # scons clang debug ninja build with TSAN enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=alpine-edge          TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=centos-7             TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
@@ -107,6 +112,7 @@ env:
     # cmake clang debug ninja build with TSAN enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
@@ -127,6 +133,7 @@ env:
   # scons clang release nounity ninja build with ASAN
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=alpine-edge          TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
@@ -147,6 +154,7 @@ env:
   # cmake clang release nounity ninja build with ASAN
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
@@ -167,6 +175,7 @@ env:
   # scons gcc static coverage build with TSAN and asserts enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=alpine-edge          TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=archlinux            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=centos-7             TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
@@ -187,6 +196,7 @@ env:
     # cmake gcc static coverage build with TSAN and asserts enabled
   - DISTRO=alpine-3.5           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=alpine-3.6           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
+  - DISTRO=alpine-3.7           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=alpine-edge          TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
