@@ -27,7 +27,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS=""
   # default cmake build
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake"
-  - DISTRO=centos-7             TEST_PY_OPTS="--cmake"
   - DISTRO=debian-buster        TEST_PY_OPTS="--cmake"
   - DISTRO=debian-sid           TEST_PY_OPTS="--cmake"
   - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake"
@@ -43,7 +42,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake"
   # scons clang release build
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release"
-  - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release"
   - DISTRO=debian-buster        TEST_PY_OPTS="-- clang.release"
   - DISTRO=debian-sid           TEST_PY_OPTS="-- clang.release"
   - DISTRO=debian-stretch       TEST_PY_OPTS="-- clang.release"
@@ -59,7 +57,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.release"
   # cmake release build
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.release"
-  - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=debian-buster        TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=debian-sid           TEST_PY_OPTS="--cmake --target clang.release"
   - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake --target clang.release"
@@ -75,7 +72,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.release"
     # scons clang debug ninja build with TSAN enabled
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
-  - DISTRO=centos-7             TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=debian-buster        TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=debian-sid           TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
   - DISTRO=debian-stretch       TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
@@ -91,7 +87,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.debug --ninja --sanitize=thread"
     # cmake clang debug ninja build with TSAN enabled
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
-  - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=debian-buster        TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=debian-sid           TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
@@ -107,7 +102,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread"
   # scons clang release nounity ninja build with ASAN
   - DISTRO=archlinux            TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
-  - DISTRO=centos-7             TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=debian-buster        TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=debian-sid           TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   - DISTRO=debian-stretch       TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
@@ -123,7 +117,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- clang.release.nounity --ninja --sanitize=address"
   # cmake clang release nounity ninja build with ASAN
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
-  - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=debian-buster        TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=debian-sid           TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
@@ -139,7 +132,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="--cmake --target clang.release.nounity --generator_option=-GNinja --generator_option=-Dsan=address"
   # scons gcc static coverage build with TSAN and asserts enabled
   - DISTRO=archlinux            TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
-  - DISTRO=centos-7             TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=debian-buster        TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=debian-sid           TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
   - DISTRO=debian-stretch       TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
@@ -155,7 +147,6 @@ env:
   - DISTRO=ubuntu-18.04         TEST_PY_OPTS="-- gcc.coverage --static --assert --sanitize=thread"
     # cmake gcc static coverage build with TSAN and asserts enabled
   - DISTRO=archlinux            TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
-  - DISTRO=centos-7             TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=debian-buster        TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=debian-sid           TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
   - DISTRO=debian-stretch       TEST_PY_OPTS="--cmake --target gcc.coverage --generator_option=-Dstatic --generator_option=-Dassert --generator_option=-Dsan=thread"
