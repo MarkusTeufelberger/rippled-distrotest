@@ -163,9 +163,9 @@ env:
 
 before_install:
   - cd $DISTRO
+  - docker build --no-cache -t rippled/$DISTRO .
   # --no-cache might not be necessary
-  # - docker build --no-cache -t rippled/$DISTRO .
-  - docker build -t rippled/$DISTRO .
+  # - docker build -t rippled/$DISTRO .
 
 script:
   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && ./Builds/Test.py -v $TEST_PY_OPTS"
