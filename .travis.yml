@@ -163,7 +163,7 @@ env:
 
 before_install:
   - cd $DISTRO
-  - docker build --no-cache -t rippled/$DISTRO .
+  - docker build --pull --no-cache -t rippled/$DISTRO .
   # --no-cache might not be necessary
   # - docker build -t rippled/$DISTRO .
 
