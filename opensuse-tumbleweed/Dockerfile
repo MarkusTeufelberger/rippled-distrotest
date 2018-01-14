@@ -14,7 +14,7 @@ RUN  zypper --non-interactive update \
             pkg-config \
             protobuf-devel \
             protobuf-c \
-            boost_1_65-devel \
+            boost_1_66-devel \
             libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
