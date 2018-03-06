@@ -4,6 +4,7 @@ FROM opensuse:tumbleweed
 RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
             git \
+            python \
             scons \
             cmake \
             gcc \
@@ -14,7 +15,14 @@ RUN  zypper --non-interactive update \
             pkg-config \
             protobuf-devel \
             protobuf-c \
-            boost_1_66-devel \
+            libboost_headers1_66_0-devel \
+            libboost_container1_66_0-devel \
+            libboost_coroutine1_66_0-devel \
+            libboost_filesystem1_66_0-devel \
+            libboost_program_options1_66_0-devel \
+            libboost_regex1_66_0-devel \
+            libboost_serialization1_66_0-devel \
+            libboost_thread1_66_0-devel \
             libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
