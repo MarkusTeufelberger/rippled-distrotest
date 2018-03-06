@@ -108,10 +108,6 @@ No deb packages offered though, only rpm.
 
 ...
 
-### 17.04
-
-...
-
 ### 17.10
 
 ...
