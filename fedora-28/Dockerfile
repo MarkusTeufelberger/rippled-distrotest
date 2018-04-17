@@ -5,6 +5,7 @@ RUN  dnf -y upgrade --refresh \
   && dnf -y install \
           git \
           cmake \
+          make \
           ninja-build \
           clang \
           libstdc++-devel \

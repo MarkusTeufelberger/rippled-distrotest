@@ -5,6 +5,7 @@ RUN  apk add --no-cache \
               git \
               bash \
               cmake \
+              make \
               util-linux \
               ninja \
               pkgconf \
