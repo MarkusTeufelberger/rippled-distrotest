@@ -21,15 +21,15 @@ It requires a few patches that still weren't accepted in rippled so far (https:/
 
 ### 3.5
 
-Requires musl compatibility patches in RocksDB and rippled (beast).
+Requires musl compatibility patches.
 
 ### 3.6
 
-Requires musl compatibility patches in RocksDB and rippled (beast).
+Requires musl compatibility patches.
 
 ### 3.7
 
-Requires musl compatibility patches in RocksDB and rippled (beast).
+Requires musl compatibility patches.
 
 ## Arch Linux
 
@@ -73,15 +73,15 @@ No backports are available, but rippled builds on newer Debian versions.
 
 ## Fedora
 
-### 25
-
-...
-
 ### 26
 
 ...
 
 ### 27
+
+...
+
+### 28
 
 ...
 
@@ -112,6 +112,6 @@ No deb packages offered though, only rpm.
 
 ...
 
-### 18.04
+### 18.04 (LTS)
 
 ...
