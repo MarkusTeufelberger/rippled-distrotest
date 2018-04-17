@@ -49,6 +49,8 @@ The devtoolset collection from the SCLo repository could be a solution, but is n
 
 OTOH, ninja-build also already must be pulled in from EPEL, but that's because it is only available there.
 
+Another issue is the CMake version (rippled requires at least CMake version 3.1.0).
+
 The only distro Ripple currently ships pre-built binaries for (https://mirrors.ripple.com/rpm/) and one of 2 supported platforms (https://ripple.com/build/rippled-setup/#installing-rippled)
 
 ## Debian
@@ -58,6 +60,8 @@ The only distro Ripple currently ships pre-built binaries for (https://mirrors.r
 Ships with libboost 1.55 (https://packages.debian.org/search?keywords=libboost, https://pkgs.org/download/libboost) which is too old to build rippled.
 
 No backports are available, but rippled builds on newer Debian versions.
+
+Another issue is the CMake version (rippled requires at least CMake version 3.1.0).
 
 ### Stretch
 
@@ -106,7 +110,9 @@ No deb packages offered though, only rpm.
 
 ### 16.04 (LTS)
 
-...
+Ships with libboost 1.58 (https://packages.ubuntu.com/xenial/libboost-all-dev) which is too old to build rippled.
+
+No backports are available, but rippled builds on newer Ubuntu versions.
 
 ### 17.10
 
