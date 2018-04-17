@@ -29,8 +29,12 @@ broken_distros = [
 "alpine-3.6",
 "alpine-3.7",
 "alpine-edge",
-# boost too old and not backported
+# cmake too old
+"centos-7",
+# boost too old and not backported, cmake too old
 "debian-jessie",
+# boost too old and not backported
+"ubuntu-16.04",
 ]
 
 test_py_opts = [
