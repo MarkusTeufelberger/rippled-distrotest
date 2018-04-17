@@ -6,7 +6,6 @@ RUN  apt-get update \
   && apt-get -y install \
               git \
               cmake \
-              scons \
               ninja-build \
               gcc \
               g++ \
@@ -22,7 +21,6 @@ RUN  apt-get update \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

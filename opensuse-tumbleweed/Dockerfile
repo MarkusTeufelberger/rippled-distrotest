@@ -5,7 +5,6 @@ RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
             git \
             python \
-            scons \
             cmake \
             gcc \
             clang \
@@ -30,7 +29,6 @@ RUN  zypper --non-interactive update \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

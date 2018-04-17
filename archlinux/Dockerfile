@@ -7,7 +7,6 @@ RUN  pacman -Syu --noconfirm \
             git \
             cmake \
             make \
-            scons \
             ninja \
             clang \
             pkg-config \
@@ -22,7 +21,6 @@ RUN  pacman -Syu --noconfirm \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

@@ -5,7 +5,6 @@ RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
             git \
             cmake \
-            scons \
             gcc5 \
             gcc5-c++ \
             llvm-clang \
@@ -23,7 +22,6 @@ RUN  zypper --non-interactive update \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

@@ -7,7 +7,6 @@ RUN  apk add --no-cache \
               cmake \
               make \
               util-linux \
-              scons \
               ninja \
               pkgconf \
               clang \
@@ -27,7 +26,6 @@ RUN  apk add --no-cache \
   && lscpu --version \
   # && grep --version \
   && busybox \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

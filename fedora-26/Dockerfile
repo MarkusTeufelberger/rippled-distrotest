@@ -4,7 +4,6 @@ FROM fedora:26
 RUN  dnf -y upgrade --refresh \
   && dnf -y install \
           git \
-          scons \
           cmake \
           ninja-build \
           clang \
@@ -28,7 +27,6 @@ RUN  dnf -y upgrade --refresh \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \

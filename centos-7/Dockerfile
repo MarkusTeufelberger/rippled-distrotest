@@ -6,7 +6,6 @@ RUN  yum -y install \
   && yum -y upgrade \
   && yum -y install \
           git \
-          scons \
           ninja-build \
           cmake \
           gcc \
@@ -32,7 +31,6 @@ RUN  yum -y install \
   && cmake --version \
   && lscpu --version \
   && grep --version \
-  && scons --version \
   && ninja --version \
   && pkg-config --version \
   && gcc --version \
