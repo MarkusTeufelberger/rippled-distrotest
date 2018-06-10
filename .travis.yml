@@ -131,31 +131,31 @@ env:
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.04
   # clang coverage ninja build statically linked and with assertions enabled
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-stretch
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-buster
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-26
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-27
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-28
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=opensuse-42.3
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=ubuntu-17.10
-  - TEST_PY_OPTS="--dir clang.coverage --static --assert --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-stretch
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-buster
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-26
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-27
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-28
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-rawhide
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
   # gcc coverage ninja build statically linked and with assertions enabled
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-stretch
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-buster
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-26
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-27
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-28
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=opensuse-42.3
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=ubuntu-17.10
-  - TEST_PY_OPTS="--dir gcc.coverage --static --assert --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-stretch
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-buster
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-26
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-27
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-28
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-rawhide
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
 
 before_install:
   - cd $DISTRO
