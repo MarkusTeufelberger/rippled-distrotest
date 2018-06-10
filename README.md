@@ -125,3 +125,8 @@ No backports are available, but rippled builds on newer Ubuntu versions.
 ### 18.04 (LTS)
 
 ...
+
+### 18.10
+
+...
+
