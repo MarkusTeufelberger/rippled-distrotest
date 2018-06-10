@@ -17,145 +17,156 @@ env:
   - TEST_PY_OPTS="" DISTRO=debian-stretch
   - TEST_PY_OPTS="" DISTRO=debian-buster
   - TEST_PY_OPTS="" DISTRO=debian-sid
-  - TEST_PY_OPTS="" DISTRO=fedora-26
   - TEST_PY_OPTS="" DISTRO=fedora-27
   - TEST_PY_OPTS="" DISTRO=fedora-28
   - TEST_PY_OPTS="" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="" DISTRO=ubuntu-16.04
   - TEST_PY_OPTS="" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="" DISTRO=ubuntu-18.10
   # clang release build
   - TEST_PY_OPTS="--dir clang.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir clang.release" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.release" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir clang.release" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir clang.release" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir clang.release" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-18.10
   # gcc release build
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.release" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.10
   # clang debug ninja build with TSAN enabled
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   # clang debug ninja build with ASAN enabled
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   # gcc debug ninja build with TSAN enabled
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   # gcc debug ninja build with ASAN enabled
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   # clang release nounity ninja build
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # gcc release nounity ninja build
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # clang coverage ninja build statically linked and with assertions enabled
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # gcc coverage ninja build statically linked and with assertions enabled
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-stretch
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=debian-sid
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-26
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-27
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=fedora-rawhide
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-42.3
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
 
 before_install:
   - cd $DISTRO

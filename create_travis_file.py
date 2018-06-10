@@ -11,15 +11,16 @@ distros = [
 "debian-stretch",
 "debian-buster",
 "debian-sid",
-"fedora-26",
 "fedora-27",
 "fedora-28",
 "fedora-rawhide",
-"opensuse-42.3",
+"opensuse-leap-42",
+"opensuse-leap-15",
 "opensuse-tumbleweed",
 "ubuntu-16.04",
 "ubuntu-17.10",
 "ubuntu-18.04",
+"ubuntu-18.10",
 ]
 
 # these don't even manage to build the default build
@@ -48,8 +49,8 @@ test_py_opts = [
 ("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address", "gcc debug ninja build with ASAN enabled"),
 ("--dir clang.release.nounity  --generator_option=-GNinja", "clang release nounity ninja build"),
 ("--dir gcc.release.nounity  --generator_option=-GNinja", "gcc release nounity ninja build"),
-("--dir clang.coverage --static --assert --generator_option=-GNinja", "clang coverage ninja build statically linked and with assertions enabled"),
-("--dir gcc.coverage --static --assert --generator_option=-GNinja", "gcc coverage ninja build statically linked and with assertions enabled"),
+("--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja", "clang coverage ninja build statically linked and with assertions enabled"),
+("--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja", "gcc coverage ninja build statically linked and with assertions enabled"),
 ]
 
 with open(".travis.yml", "w") as travisfile:
