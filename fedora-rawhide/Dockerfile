@@ -33,7 +33,8 @@ RUN  dnf -y upgrade --refresh \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && ln -s /usr/bin/python3 /usr/bin/python
 
 WORKDIR /rippled/Builds
 
