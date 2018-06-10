@@ -5,18 +5,23 @@ RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
             git \
             cmake \
-            gcc5 \
-            gcc5-c++ \
-            llvm-clang \
+            gcc \
+            gcc-c++ \
+            clang \
             ninja \
             pkg-config \
             protobuf-devel \
             protobuf-c \
-            boost_1_61-devel \
+            libboost_headers1_66_0-devel \
+            libboost_container1_66_0-devel \
+            libboost_coroutine1_66_0-devel \
+            libboost_filesystem1_66_0-devel \
+            libboost_program_options1_66_0-devel \
+            libboost_regex1_66_0-devel \
+            libboost_serialization1_66_0-devel \
+            libboost_thread1_66_0-devel \
             libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
-  && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 99 \
-  && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 99 \
   && git --version \
   && bash --version \
   && cmake --version \
