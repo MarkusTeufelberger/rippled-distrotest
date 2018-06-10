@@ -99,6 +99,10 @@ Another issue is the CMake version (rippled requires at least CMake version 3.1.
 
 ...
 
+### Leap (15.0)
+
+...
+
 ### Tumbleweed (Rolling Release)
 
 ...

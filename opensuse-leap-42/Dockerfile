@@ -1,29 +1,22 @@
-FROM opensuse/tumbleweed
+FROM opensuse/leap:42
 
 # Update the OS to current packages, install dependencies, clone repo
 RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
             git \
-            python \
             cmake \
-            gcc \
-            clang \
+            gcc5 \
+            gcc5-c++ \
+            llvm-clang \
             ninja \
-            libasan4 \
-            libtsan0 \
             pkg-config \
             protobuf-devel \
             protobuf-c \
-            libboost_headers1_66_0-devel \
-            libboost_container1_66_0-devel \
-            libboost_coroutine1_66_0-devel \
-            libboost_filesystem1_66_0-devel \
-            libboost_program_options1_66_0-devel \
-            libboost_regex1_66_0-devel \
-            libboost_serialization1_66_0-devel \
-            libboost_thread1_66_0-devel \
+            boost_1_61-devel \
             libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
+  && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 99 \
+  && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 99 \
   && git --version \
   && bash --version \
   && cmake --version \

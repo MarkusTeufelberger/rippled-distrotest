@@ -1,4 +1,4 @@
-FROM opensuse:42.3
+FROM opensuse/leap:15
 
 # Update the OS to current packages, install dependencies, clone repo
 RUN  zypper --non-interactive update \
