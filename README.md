@@ -89,7 +89,7 @@ Boost too old to build.
 
 No backports are available, but rippled builds on newer Debian versions.
 
-Another issue is the CMake version (rippled requires at least CMake version 3.1.0).
+Another issue is the old CMake version.
 
 ### Stretch
 
