@@ -30,6 +30,12 @@ Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.7)
 
 Requires musl compatibility patches.
 
+### 3.8
+
+Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
+
+Requires musl compatibility patches.
+
 ### Edge (Rolling Release)
 
 Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
