@@ -3,17 +3,17 @@ FROM archimg/base
 # Update the OS to current packages, install dependencies, clone repo
 RUN  pacman -Syu --noconfirm \
   && pacman -S --noconfirm \
-            grep \
-            git \
-            cmake \
-            make \
-            ninja \
-            clang \
-            pkg-config \
-            protobuf \
-            boost \
-            boost-libs \
-            python \
+  grep \
+  git \
+  cmake \
+  make \
+  ninja \
+  clang \
+  pkg-config \
+  protobuf \
+  boost \
+  boost-libs \
+  python \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \

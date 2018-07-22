@@ -3,17 +3,17 @@ FROM opensuse/leap:42
 # Update the OS to current packages, install dependencies, clone repo
 RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
-            git \
-            cmake \
-            gcc5 \
-            gcc5-c++ \
-            llvm-clang \
-            ninja \
-            pkg-config \
-            protobuf-devel \
-            protobuf-c \
-            boost_1_61-devel \
-            libopenssl-devel \
+  git \
+  cmake \
+  gcc5 \
+  gcc5-c++ \
+  llvm-clang \
+  ninja \
+  pkg-config \
+  protobuf-devel \
+  protobuf-c \
+  boost_1_61-devel \
+  libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 99 \
   && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 99 \
