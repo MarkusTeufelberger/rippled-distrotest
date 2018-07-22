@@ -10,6 +10,7 @@ env:
   - TEST_PY_OPTS="" DISTRO=alpine-3.5
   - TEST_PY_OPTS="" DISTRO=alpine-3.6
   - TEST_PY_OPTS="" DISTRO=alpine-3.7
+  - TEST_PY_OPTS="" DISTRO=alpine-3.8
   - TEST_PY_OPTS="" DISTRO=alpine-edge
   - TEST_PY_OPTS="" DISTRO=archlinux
   - TEST_PY_OPTS="" DISTRO=centos-7
@@ -24,7 +25,6 @@ env:
   - TEST_PY_OPTS="" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="" DISTRO=ubuntu-16.04
-  - TEST_PY_OPTS="" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.10
   # clang release build
@@ -38,7 +38,6 @@ env:
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-18.10
   # gcc release build
@@ -52,7 +51,6 @@ env:
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.10
   # clang debug ninja build with TSAN enabled
@@ -66,7 +64,6 @@ env:
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   # clang debug ninja build with ASAN enabled
@@ -80,7 +77,6 @@ env:
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   # gcc debug ninja build with TSAN enabled
@@ -94,7 +90,6 @@ env:
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   # gcc debug ninja build with ASAN enabled
@@ -108,7 +103,6 @@ env:
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   # clang release nounity ninja build
@@ -122,7 +116,6 @@ env:
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # gcc release nounity ninja build
@@ -136,7 +129,6 @@ env:
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # clang coverage ninja build statically linked and with assertions enabled
@@ -150,7 +142,6 @@ env:
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # gcc coverage ninja build statically linked and with assertions enabled
@@ -164,7 +155,6 @@ env:
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-leap-15
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-17.10
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
 

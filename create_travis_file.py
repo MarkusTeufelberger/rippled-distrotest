@@ -1,78 +1,98 @@
 #!/usr/bin/env python3
 
 distros = [
-"alpine-3.5",
-"alpine-3.6",
-"alpine-3.7",
-"alpine-edge",
-"archlinux",
-"centos-7",
-"debian-jessie",
-"debian-stretch",
-"debian-buster",
-"debian-sid",
-"fedora-27",
-"fedora-28",
-"fedora-rawhide",
-"opensuse-leap-42",
-"opensuse-leap-15",
-"opensuse-tumbleweed",
-"ubuntu-16.04",
-"ubuntu-17.10",
-"ubuntu-18.04",
-"ubuntu-18.10",
+    "alpine-3.5",
+    "alpine-3.6",
+    "alpine-3.7",
+    "alpine-3.8",
+    "alpine-edge",
+    "archlinux",
+    "centos-7",
+    "debian-jessie",
+    "debian-stretch",
+    "debian-buster",
+    "debian-sid",
+    "fedora-27",
+    "fedora-28",
+    "fedora-rawhide",
+    "opensuse-leap-42",
+    "opensuse-leap-15",
+    "opensuse-tumbleweed",
+    "ubuntu-16.04",
+    "ubuntu-18.04",
+    "ubuntu-18.10",
 ]
 
 # these don't even manage to build the default build
 broken_distros = [
-# need patches/fixes upstream
-"alpine-3.5",
-"alpine-3.6",
-"alpine-3.7",
-"alpine-edge",
-# cmake too old
-"centos-7",
-# boost too old and not backported, cmake too old
-"debian-jessie",
-# boost too old and not backported
-"ubuntu-16.04",
+    # need patches/fixes upstream
+    # boost too old and not backported
+    "alpine-3.5",
+    "alpine-3.6",
+    "alpine-3.7",
+    "alpine-3.8",
+    "alpine-edge",
+    # cmake too old
+    "centos-7",
+    # boost too old and not backported, cmake too old
+    "debian-jessie",
+    # boost too old and not backported
+    "ubuntu-16.04",
 ]
 
 test_py_opts = [
-# ("commandline option(s)", "description")
-("", "default build"),
-("--dir clang.release", "clang release build"),
-("--dir gcc.release", "gcc release build"),
-("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread", "clang debug ninja build with TSAN enabled"),
-("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address", "clang debug ninja build with ASAN enabled"),
-("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread", "gcc debug ninja build with TSAN enabled"),
-("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address", "gcc debug ninja build with ASAN enabled"),
-("--dir clang.release.nounity  --generator_option=-GNinja", "clang release nounity ninja build"),
-("--dir gcc.release.nounity  --generator_option=-GNinja", "gcc release nounity ninja build"),
-("--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja", "clang coverage ninja build statically linked and with assertions enabled"),
-("--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja", "gcc coverage ninja build statically linked and with assertions enabled"),
+    # ("commandline option(s)", "description")
+    ("", "default build"),
+    # TODO: install doxygen everywhere
+    # ("--dir docs", "documentation build")
+    ("--dir clang.release", "clang release build"),
+    ("--dir gcc.release", "gcc release build"),
+    ("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread",
+     "clang debug ninja build with TSAN enabled"),
+    ("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address",
+     "clang debug ninja build with ASAN enabled"),
+    ("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread",
+     "gcc debug ninja build with TSAN enabled"),
+    ("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address",
+     "gcc debug ninja build with ASAN enabled"),
+    ("--dir clang.release.nounity  --generator_option=-GNinja",
+     "clang release nounity ninja build"),
+    ("--dir gcc.release.nounity  --generator_option=-GNinja",
+     "gcc release nounity ninja build"),
+    ("--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja",
+     "clang coverage ninja build statically linked and with assertions enabled"
+     ),
+    ("--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja",
+     "gcc coverage ninja build statically linked and with assertions enabled"),
 ]
 
 with open(".travis.yml", "w") as travisfile:
     # header
-    print("""sudo: required
+    print(
+        """sudo: required
 
 services:
   - docker
 
 # most builds are with ninja because it automatically uses all available cores
 # Travis-ci is rather limited in that regards though
-env:""", file=travisfile)
+env:""",
+        file=travisfile)
 
     # content
     for test_py_opt in test_py_opts:
+        # description
         print(f"  # {test_py_opt[1]}", file=travisfile)
+        # commandline option(s) and distro
         for distro in distros:
             if test_py_opt[1] == "default build" or distro not in broken_distros:
-                print(f'  - TEST_PY_OPTS="{test_py_opt[0]}" DISTRO={distro}', file=travisfile)
+                print(
+                    f'  - TEST_PY_OPTS="{test_py_opt[0]}" DISTRO={distro}',
+                    file=travisfile)
 
     # footer
-    print("""
+    print(
+        """
 before_install:
   - cd $DISTRO
   - docker build --pull --no-cache -t rippled/$DISTRO .
@@ -83,4 +103,5 @@ script:
   - docker run --rm -t rippled/$DISTRO /bin/bash -c "cd .. && ./Builds/Test.py -v $TEST_PY_OPTS"
   # This takes FAR too long for Travis-ci:
   # - docker run --rm -t rippled/$DISTRO /bin/bash -c "./build_all.sh"
-""", file=travisfile)
+""",
+        file=travisfile)
