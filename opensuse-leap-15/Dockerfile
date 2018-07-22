@@ -4,6 +4,7 @@ FROM opensuse/leap:15
 RUN  zypper --non-interactive update \
   && zypper --non-interactive install \
   git \
+  python \
   cmake \
   gcc \
   gcc-c++ \
