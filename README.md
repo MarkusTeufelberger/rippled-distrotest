@@ -12,6 +12,8 @@ Status at the moment:
 
 ## Alpine Linux
 
+Currently supported: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases
+
 ### 3.5
 
 Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.5)
@@ -47,6 +49,8 @@ It requires a few patches that still weren't accepted in rippled so far (https:/
 
 ## Arch Linux
 
+Currently supported: Rolling release
+
 ### (Rolling Release)
 
 Boost: 1.67.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
@@ -56,6 +60,8 @@ Upstream: https://aur.archlinux.org/packages/rippled/
 Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
 
 ## CentOS/RHEL
+
+Currently supported: Follows https://access.redhat.com/support/policy/updates/errata#Life_Cycle_Dates closely
 
 The only distro Ripple currently ships pre-built binaries for (https://mirrors.ripple.com/rpm/) and one of 2 supported platforms (https://ripple.com/build/rippled-setup/#installing-rippled)
 
@@ -69,10 +75,11 @@ The devtoolset collection from the SCLo repository could be a solution, but is n
 
 OTOH, ninja-build also already must be pulled in from EPEL, but that's because it is only available there.
 
-Another issue is the CMake version (rippled requires at least CMake version 3.1.0).
-
+Another issue is the old CMake version.
 
 ## Debian
+
+Currently supported: https://wiki.debian.org/DebianReleases#Production_Releases and https://wiki.debian.org/LTS
 
 ### Jessie
 
@@ -98,6 +105,8 @@ Boost: 1.62.0 (https://packages.debian.org/sid/libboost-all-dev)
 
 ## Fedora
 
+Currently supported: https://fedoraproject.org/wiki/Releases#Current_Supported_Releases
+
 ### 27
 
 Boost: 1.64.0 (https://apps.fedoraproject.org/packages/boost)
@@ -115,6 +124,8 @@ Currently ships without `/usr/bin/python`, but has `/usr/bin/python3` installed.
 Not a hard build dependency for `rippled`.
 
 ## OpenSUSE
+
+Currently supported: https://en.opensuse.org/Lifetime
 
 ### Leap (42.3)
 
@@ -134,6 +145,8 @@ Boost is split into tons of individual sub-packages (https://lists.opensuse.org/
 
 ## Ubuntu
 
+Currently supported: https://wiki.ubuntu.com/Releases
+
 Officially supported by Ripple (https://ripple.com/build/rippled-setup/#installing-rippled) "Ubuntu 15.04 or later".
 No deb packages offered, only rpm.
 
@@ -145,15 +158,10 @@ Boost too old to build.
 
 No backports for libboost are available, but rippled builds on newer Ubuntu versions.
 
-### 17.10
-
-Boost: 1.62.0 (https://packages.ubuntu.com/artful/libboost-all-dev)
-
 ### 18.04 (LTS)
 
 Boost: 1.65.1 (https://packages.ubuntu.com/bionic/libboost-all-dev)
 
 ### 18.10
 
-Boost: 1.65.1 (https://packages.ubuntu.com/cosmic/libboost-all-dev)
-
+Boost: 1.67.0 (https://packages.ubuntu.com/cosmic/libboost-all-dev)
