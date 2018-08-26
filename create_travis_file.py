@@ -25,12 +25,12 @@ distros = [
 
 # these don't even manage to build the default build
 broken_distros = [
-    # need patches/fixes upstream
-    # boost too old and not backported
+    # need patches/fixes upstream, boost too old and not backported
     "alpine-3.5",
     "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",
+    # need patches/fixes upstream
     "alpine-edge",
     # pretty much everything too old
     "centos-7",
@@ -52,10 +52,15 @@ broken_distros = [
 test_py_opts = [
     # ("commandline option(s)", "description")
     ("", "default build"),
+    ("--generator_option=-Dstatic=OFF", "default build"),
     # TODO: install doxygen everywhere
     # ("--dir docs", "documentation build")
     ("--dir clang.release", "clang release build"),
     ("--dir gcc.release", "gcc release build"),
+    ("--dir clang.release --generator_option=-Dstatic=OFF",
+     "clang release nonstatic build"),
+    ("--dir gcc.release --generator_option=-Dstatic=OFF",
+     "gcc release nonstatic build"),
     ("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread",
      "clang debug ninja build with TSAN enabled"),
     ("--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address",
@@ -64,15 +69,22 @@ test_py_opts = [
      "gcc debug ninja build with TSAN enabled"),
     ("--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address",
      "gcc debug ninja build with ASAN enabled"),
-    ("--dir clang.release.nounity  --generator_option=-GNinja",
+    ("--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread",
+     "clang debug nonstatic ninja build with TSAN enabled"),
+    ("--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address",
+     "clang debug nonstatic ninja build with ASAN enabled"),
+    ("--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread",
+     "gcc debug nonstatic ninja build with TSAN enabled"),
+    ("--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address",
+     "gcc debug nonstatic ninja build with ASAN enabled"),
+    ("--dir clang.release.nounity --generator_option=-GNinja",
      "clang release nounity ninja build"),
-    ("--dir gcc.release.nounity  --generator_option=-GNinja",
+    ("--dir gcc.release.nounity --generator_option=-GNinja",
      "gcc release nounity ninja build"),
-    ("--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja",
-     "clang coverage ninja build statically linked and with assertions enabled"
-     ),
-    ("--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja",
-     "gcc coverage ninja build statically linked and with assertions enabled"),
+    ("--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja",
+     "clang release nonstatic nounity ninja build"),
+    ("--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja",
+     "gcc release nonstatic nounity ninja build"),
 ]
 
 with open(".travis.yml", "w") as travisfile:

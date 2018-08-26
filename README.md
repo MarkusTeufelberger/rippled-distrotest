@@ -40,7 +40,9 @@ Requires musl compatibility patches.
 
 ### Edge (Rolling Release)
 
-Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
+Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
+
+Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 Upstream: https://pkgs.alpinelinux.org/package/edge/testing/x86_64/rippled
 
@@ -58,6 +60,8 @@ Boost: 1.67.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 Upstream: https://aur.archlinux.org/packages/rippled/
 
 Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
+
+Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 ## CentOS/RHEL
 
@@ -142,6 +146,8 @@ Boost is split into tons of individual sub-packages (https://lists.opensuse.org/
 Boost: 1.67.0 (https://software.opensuse.org/package/boost)
 
 Boost is split into tons of individual sub-packages (https://lists.opensuse.org/opensuse-factory/2017-02/msg00024.html).
+
+Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 ## Ubuntu
 

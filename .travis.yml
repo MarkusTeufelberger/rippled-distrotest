@@ -27,6 +27,27 @@ env:
   - TEST_PY_OPTS="" DISTRO=ubuntu-16.04
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.10
+  # default build
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.5
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.6
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.7
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.8
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-edge
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=archlinux
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=centos-7
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-jessie
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-stretch
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-buster
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-sid
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-27
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-28
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-rawhide
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-15
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=ubuntu-16.04
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
   # clang release build
   - TEST_PY_OPTS="--dir clang.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-tumbleweed
@@ -35,6 +56,14 @@ env:
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.10
+  # clang release nonstatic build
+  - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
+  # gcc release nonstatic build
+  - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
   # clang debug ninja build with TSAN enabled
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
@@ -51,22 +80,38 @@ env:
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
+  # clang debug nonstatic ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
+  # clang debug nonstatic ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
+  # gcc debug nonstatic ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
+  # gcc debug nonstatic ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   # clang release nounity ninja build
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-18.10
   # gcc release nounity ninja build
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.release.nounity  --generator_option=-GNinja" DISTRO=ubuntu-18.10
-  # clang coverage ninja build statically linked and with assertions enabled
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir clang.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
-  # gcc coverage ninja build statically linked and with assertions enabled
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=archlinux
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
-  - TEST_PY_OPTS="--dir gcc.coverage --generator_option=-Dstatic=True --generator_option=-Dassert=True --generator_option=-GNinja" DISTRO=ubuntu-18.10
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-18.10
+  # clang release nonstatic nounity ninja build
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-18.10
+  # gcc release nonstatic nounity ninja build
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-18.10
 
 before_install:
   - cd $DISTRO
