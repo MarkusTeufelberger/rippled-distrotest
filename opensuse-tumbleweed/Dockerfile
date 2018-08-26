@@ -14,6 +14,7 @@ RUN  zypper --non-interactive update \
   pkg-config \
   protobuf-devel \
   protobuf-c \
+  libboost_atomic1_67_0-devel \
   libboost_headers1_67_0-devel \
   libboost_container1_67_0-devel \
   libboost_coroutine1_67_0-devel \
