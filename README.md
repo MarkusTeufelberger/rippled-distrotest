@@ -55,7 +55,7 @@ Currently supported: Rolling release
 
 ### (Rolling Release)
 
-Boost: 1.67.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
+Boost: 1.68.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 
 Upstream: https://aur.archlinux.org/packages/rippled/
 
