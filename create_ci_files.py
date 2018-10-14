@@ -130,6 +130,41 @@ script:
 """,
         file=travisfile)
 
+build_types = [
+    "gcc.debug.nounity",
+    "gcc.debug.unity",
+    "gcc.debug.coverage.nounity",
+    "gcc.debug.coverage.unity",
+    "gcc.release.nounity",
+    "gcc.release.unity",
+    "gcc.release.nounity",
+    "gcc.release.unity",
+    "gcc.debug.nounity.profile",
+    "gcc.debug.unity.profile",
+    "gcc.debug.coverage.nounity.profile",
+    "gcc.debug.coverage.unity.profile",
+    "gcc.release.nounity.profile",
+    "gcc.release.unity.profile",
+    "gcc.release.nounity.profile",
+    "gcc.release.unity.profile",
+    "clang.debug.nounity",
+    "clang.debug.unity",
+    "clang.debug.coverage.nounity",
+    "clang.debug.coverage.unity",
+    "clang.release.nounity",
+    "clang.release.unity",
+    "clang.release.nounity",
+    "clang.release.unity",
+    "clang.debug.nounity.profile",
+    "clang.debug.unity.profile",
+    "clang.debug.coverage.nounity.profile",
+    "clang.debug.coverage.unity.profile",
+    "clang.release.nounity.profile",
+    "clang.release.unity.profile",
+    "clang.release.nounity.profile",
+    "clang.release.unity.profile",
+]
+
 with open("azure-pipelines.yml", "w") as azurefile:
     # header
     print(
@@ -171,4 +206,55 @@ jobs:""",
             file=azurefile)
         print(
             f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"',
+            file=azurefile)
+    # all possible builds, depend on the smoketest being successful
+    print("# actual matrix builds start here", file=azurefile)
+    for distro in distros:
+        # static
+        print(
+            f"- job: {distro.replace('-', '_').replace('.', '_')}_static_matrix",
+            file=azurefile)
+        print("  pool:", file=azurefile)
+        print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
+        print(f"  dependsOn: {distro}-static-smoketest", file=azurefile)
+        print("  condition: succeeded()", file=azurefile)
+        print("  strategy:", file=azurefile)
+        print("    matrix:", file=azurefile)
+        for build_type in build_types:
+            print(
+                f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}:",
+                file=azurefile)
+            print(f"        TEST_PY_OPTS: --dir {build_type}", file=azurefile)
+        print("  steps:", file=azurefile)
+        print("  - script: |", file=azurefile)
+        print(f"      cd {distro}", file=azurefile)
+        print(
+            f"      docker build --pull --no-cache -t rippled/{distro} .",
+            file=azurefile)
+        print(
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON $TEST_PY_OPTS"',
+            file=azurefile)
+        # nonstatic
+        print(
+            f"- job: {distro.replace('-', '_').replace('.', '_')}_nonstatic_matrix",
+            file=azurefile)
+        print("  pool:", file=azurefile)
+        print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
+        print(f"  dependsOn: {distro}-nonstatic-smoketest", file=azurefile)
+        print("  condition: succeeded()", file=azurefile)
+        print("  strategy:", file=azurefile)
+        print("    matrix:", file=azurefile)
+        for build_type in build_types:
+            print(
+                f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}:",
+                file=azurefile)
+            print(f"        TEST_PY_OPTS: --dir {build_type}", file=azurefile)
+        print("  steps:", file=azurefile)
+        print("  - script: |", file=azurefile)
+        print(f"      cd {distro}", file=azurefile)
+        print(
+            f"      docker build --pull --no-cache -t rippled/{distro} .",
+            file=azurefile)
+        print(
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF $TEST_PY_OPTS"',
             file=azurefile)
