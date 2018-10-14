@@ -14,15 +14,15 @@ RUN  zypper --non-interactive update \
   pkg-config \
   protobuf-devel \
   protobuf-c \
-  libboost_atomic1_67_0-devel \
-  libboost_headers1_67_0-devel \
-  libboost_container1_67_0-devel \
-  libboost_coroutine1_67_0-devel \
-  libboost_filesystem1_67_0-devel \
-  libboost_program_options1_67_0-devel \
-  libboost_regex1_67_0-devel \
-  libboost_serialization1_67_0-devel \
-  libboost_thread1_67_0-devel \
+  libboost_atomic1_68_0-devel \
+  libboost_headers1_68_0-devel \
+  libboost_container1_68_0-devel \
+  libboost_coroutine1_68_0-devel \
+  libboost_filesystem1_68_0-devel \
+  libboost_program_options1_68_0-devel \
+  libboost_regex1_68_0-devel \
+  libboost_serialization1_68_0-devel \
+  libboost_thread1_68_0-devel \
   libopenssl-devel \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \

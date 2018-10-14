@@ -143,7 +143,7 @@ Boost is split into tons of individual sub-packages (https://lists.opensuse.org/
 
 ### Tumbleweed (Rolling Release)
 
-Boost: 1.67.0 (https://software.opensuse.org/package/boost)
+Boost: 1.68.0 (https://software.opensuse.org/package/boost)
 
 Boost is split into tons of individual sub-packages (https://lists.opensuse.org/opensuse-factory/2017-02/msg00024.html).
 
