@@ -226,7 +226,7 @@ jobs:""",
             f"      docker build --pull --no-cache -t rippled/{distro} .",
             file=azurefile)
         print(
-            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON $TEST_PY_OPTS"',
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"',
             file=azurefile)
         # nonstatic
         print(
@@ -252,5 +252,5 @@ jobs:""",
             f"      docker build --pull --no-cache -t rippled/{distro} .",
             file=azurefile)
         print(
-            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF $TEST_PY_OPTS"',
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"',
             file=azurefile)
