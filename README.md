@@ -51,7 +51,7 @@ Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 Upstream: https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled
 
-One of the few distros that at least have an actual rippled package upstream (in edge/testing).
+One of the few distros that at least have an actual rippled package upstream (in community).
 It requires a few patches that still weren't accepted in rippled so far (https://github.com/alpinelinux/aports/tree/master/community/rippled).
 
 ## Arch Linux
