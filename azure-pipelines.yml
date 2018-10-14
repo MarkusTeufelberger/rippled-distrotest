@@ -1,0 +1,263 @@
+# Use Ubuntu Xenial based Docker hosts:
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=vsts&tabs=yaml#build-environment
+pool:
+  vmImage: "Ubuntu 16.04"
+
+# To prevent excessive use of resources, start with a simple static and nonstatic build.
+# Then make every other build a matrix build depending on the initial one succeeding.
+
+# Job dependencies: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=vsts&tabs=yaml#job-status-functions
+# Matrix build strategy: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=vsts&tabs=yaml#multi-configuration
+jobs:
+- job: alpine-3.5-static-smoketest
+  steps:
+  - script: |
+      cd alpine-3.5
+      docker build --pull --no-cache -t rippled/alpine-3.5 .
+      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: alpine-3.5-nonstatic-smoketest
+  steps:
+  - script: |
+      cd alpine-3.5
+      docker build --pull --no-cache -t rippled/alpine-3.5 .
+      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: alpine-3.6-static-smoketest
+  steps:
+  - script: |
+      cd alpine-3.6
+      docker build --pull --no-cache -t rippled/alpine-3.6 .
+      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: alpine-3.6-nonstatic-smoketest
+  steps:
+  - script: |
+      cd alpine-3.6
+      docker build --pull --no-cache -t rippled/alpine-3.6 .
+      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: alpine-3.7-static-smoketest
+  steps:
+  - script: |
+      cd alpine-3.7
+      docker build --pull --no-cache -t rippled/alpine-3.7 .
+      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: alpine-3.7-nonstatic-smoketest
+  steps:
+  - script: |
+      cd alpine-3.7
+      docker build --pull --no-cache -t rippled/alpine-3.7 .
+      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: alpine-3.8-static-smoketest
+  steps:
+  - script: |
+      cd alpine-3.8
+      docker build --pull --no-cache -t rippled/alpine-3.8 .
+      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: alpine-3.8-nonstatic-smoketest
+  steps:
+  - script: |
+      cd alpine-3.8
+      docker build --pull --no-cache -t rippled/alpine-3.8 .
+      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: alpine-edge-static-smoketest
+  steps:
+  - script: |
+      cd alpine-edge
+      docker build --pull --no-cache -t rippled/alpine-edge .
+      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: alpine-edge-nonstatic-smoketest
+  steps:
+  - script: |
+      cd alpine-edge
+      docker build --pull --no-cache -t rippled/alpine-edge .
+      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: archlinux-static-smoketest
+  steps:
+  - script: |
+      cd archlinux
+      docker build --pull --no-cache -t rippled/archlinux .
+      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: archlinux-nonstatic-smoketest
+  steps:
+  - script: |
+      cd archlinux
+      docker build --pull --no-cache -t rippled/archlinux .
+      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: centos-7-static-smoketest
+  steps:
+  - script: |
+      cd centos-7
+      docker build --pull --no-cache -t rippled/centos-7 .
+      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: centos-7-nonstatic-smoketest
+  steps:
+  - script: |
+      cd centos-7
+      docker build --pull --no-cache -t rippled/centos-7 .
+      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: debian-jessie-static-smoketest
+  steps:
+  - script: |
+      cd debian-jessie
+      docker build --pull --no-cache -t rippled/debian-jessie .
+      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: debian-jessie-nonstatic-smoketest
+  steps:
+  - script: |
+      cd debian-jessie
+      docker build --pull --no-cache -t rippled/debian-jessie .
+      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: debian-stretch-static-smoketest
+  steps:
+  - script: |
+      cd debian-stretch
+      docker build --pull --no-cache -t rippled/debian-stretch .
+      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: debian-stretch-nonstatic-smoketest
+  steps:
+  - script: |
+      cd debian-stretch
+      docker build --pull --no-cache -t rippled/debian-stretch .
+      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: debian-buster-static-smoketest
+  steps:
+  - script: |
+      cd debian-buster
+      docker build --pull --no-cache -t rippled/debian-buster .
+      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: debian-buster-nonstatic-smoketest
+  steps:
+  - script: |
+      cd debian-buster
+      docker build --pull --no-cache -t rippled/debian-buster .
+      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: debian-sid-static-smoketest
+  steps:
+  - script: |
+      cd debian-sid
+      docker build --pull --no-cache -t rippled/debian-sid .
+      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: debian-sid-nonstatic-smoketest
+  steps:
+  - script: |
+      cd debian-sid
+      docker build --pull --no-cache -t rippled/debian-sid .
+      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: fedora-27-static-smoketest
+  steps:
+  - script: |
+      cd fedora-27
+      docker build --pull --no-cache -t rippled/fedora-27 .
+      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: fedora-27-nonstatic-smoketest
+  steps:
+  - script: |
+      cd fedora-27
+      docker build --pull --no-cache -t rippled/fedora-27 .
+      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: fedora-28-static-smoketest
+  steps:
+  - script: |
+      cd fedora-28
+      docker build --pull --no-cache -t rippled/fedora-28 .
+      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: fedora-28-nonstatic-smoketest
+  steps:
+  - script: |
+      cd fedora-28
+      docker build --pull --no-cache -t rippled/fedora-28 .
+      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: fedora-29-static-smoketest
+  steps:
+  - script: |
+      cd fedora-29
+      docker build --pull --no-cache -t rippled/fedora-29 .
+      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: fedora-29-nonstatic-smoketest
+  steps:
+  - script: |
+      cd fedora-29
+      docker build --pull --no-cache -t rippled/fedora-29 .
+      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: fedora-rawhide-static-smoketest
+  steps:
+  - script: |
+      cd fedora-rawhide
+      docker build --pull --no-cache -t rippled/fedora-rawhide .
+      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: fedora-rawhide-nonstatic-smoketest
+  steps:
+  - script: |
+      cd fedora-rawhide
+      docker build --pull --no-cache -t rippled/fedora-rawhide .
+      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: opensuse-leap-42-static-smoketest
+  steps:
+  - script: |
+      cd opensuse-leap-42
+      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
+      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: opensuse-leap-42-nonstatic-smoketest
+  steps:
+  - script: |
+      cd opensuse-leap-42
+      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
+      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: opensuse-leap-15-static-smoketest
+  steps:
+  - script: |
+      cd opensuse-leap-15
+      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
+      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: opensuse-leap-15-nonstatic-smoketest
+  steps:
+  - script: |
+      cd opensuse-leap-15
+      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
+      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: opensuse-tumbleweed-static-smoketest
+  steps:
+  - script: |
+      cd opensuse-tumbleweed
+      docker build --pull --no-cache -t rippled/opensuse-tumbleweed .
+      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: opensuse-tumbleweed-nonstatic-smoketest
+  steps:
+  - script: |
+      cd opensuse-tumbleweed
+      docker build --pull --no-cache -t rippled/opensuse-tumbleweed .
+      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: ubuntu-16.04-static-smoketest
+  steps:
+  - script: |
+      cd ubuntu-16.04
+      docker build --pull --no-cache -t rippled/ubuntu-16.04 .
+      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: ubuntu-16.04-nonstatic-smoketest
+  steps:
+  - script: |
+      cd ubuntu-16.04
+      docker build --pull --no-cache -t rippled/ubuntu-16.04 .
+      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: ubuntu-18.04-static-smoketest
+  steps:
+  - script: |
+      cd ubuntu-18.04
+      docker build --pull --no-cache -t rippled/ubuntu-18.04 .
+      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: ubuntu-18.04-nonstatic-smoketest
+  steps:
+  - script: |
+      cd ubuntu-18.04
+      docker build --pull --no-cache -t rippled/ubuntu-18.04 .
+      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+- job: ubuntu-18.10-static-smoketest
+  steps:
+  - script: |
+      cd ubuntu-18.10
+      docker build --pull --no-cache -t rippled/ubuntu-18.10 .
+      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+- job: ubuntu-18.10-nonstatic-smoketest
+  steps:
+  - script: |
+      cd ubuntu-18.10
+      docker build --pull --no-cache -t rippled/ubuntu-18.10 .
+      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"

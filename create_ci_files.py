@@ -51,7 +51,7 @@ broken_distros = [
     "ubuntu-18.04",
 ]
 
-test_py_opts = [
+travis_test_py_opts = [
     # ("commandline option(s)", "description")
     ("", "default build"),
     ("--generator_option=-Dstatic=OFF", "default build"),
@@ -103,7 +103,7 @@ env:""",
         file=travisfile)
 
     # content
-    for test_py_opt in test_py_opts:
+    for test_py_opt in travis_test_py_opts:
         # description
         print(f"  # {test_py_opt[1]}", file=travisfile)
         # commandline option(s) and distro
@@ -129,3 +129,43 @@ script:
   # - docker run --rm -t rippled/$DISTRO /bin/bash -c "./build_all.sh"
 """,
         file=travisfile)
+
+with open("azure-pipelines.yml", "w") as azurefile:
+    # header
+    print(
+        """# Use Ubuntu Xenial based Docker hosts:
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=vsts&tabs=yaml#build-environment
+pool:
+  vmImage: "Ubuntu 16.04"
+
+# To prevent excessive use of resources, start with a simple static and nonstatic build.
+# Then make every other build a matrix build depending on the initial one succeeding.
+
+# Job dependencies: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=vsts&tabs=yaml#job-status-functions
+# Matrix build strategy: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=vsts&tabs=yaml#multi-configuration
+jobs:""",
+        file=azurefile)
+    # initial smoketest builds
+    for distro in distros:
+        # static
+        print(f"- job: {distro}-static-smoketest", file=azurefile)
+        print("  steps:", file=azurefile)
+        print("  - script: |", file=azurefile)
+        print(f"      cd {distro}", file=azurefile)
+        print(
+            f"      docker build --pull --no-cache -t rippled/{distro} .",
+            file=azurefile)
+        print(
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"',
+            file=azurefile)
+        # nonstatic
+        print(f"- job: {distro}-nonstatic-smoketest", file=azurefile)
+        print("  steps:", file=azurefile)
+        print("  - script: |", file=azurefile)
+        print(f"      cd {distro}", file=azurefile)
+        print(
+            f"      docker build --pull --no-cache -t rippled/{distro} .",
+            file=azurefile)
+        print(
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"',
+            file=azurefile)
