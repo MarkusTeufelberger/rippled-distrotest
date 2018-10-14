@@ -223,21 +223,30 @@ jobs:""",
         print("  strategy:", file=azurefile)
         print("    matrix:", file=azurefile)
         for build_type in build_types:
-            for sanitizer in sanitizers:
-                if sanitizer == "none":
-                    print(
-                        f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}:",
-                        file=azurefile)
-                    print(
-                        f"        TEST_PY_OPTS: --dir {build_type}",
-                        file=azurefile)
-                else:
-                    print(
-                        f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}_{sanitizer}:",
-                        file=azurefile)
-                    print(
-                        f"        TEST_PY_OPTS: --dir {build_type} --generator_option=-Dsan={sanitizer}",
-                        file=azurefile)
+            if build_type.endswith("debug.nounity") or build_type.endswith(
+                    "debug.unity"):
+                for sanitizer in sanitizers:
+                    if sanitizer == "none":
+                        print(
+                            f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}:",
+                            file=azurefile)
+                        print(
+                            f"        TEST_PY_OPTS: --dir {build_type}",
+                            file=azurefile)
+                    else:
+                        print(
+                            f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}_sanitize_{sanitizer}:",
+                            file=azurefile)
+                        print(
+                            f"        TEST_PY_OPTS: --dir {build_type} --generator_option=-Dsan={sanitizer}",
+                            file=azurefile)
+            else:
+                print(
+                    f"      {distro.replace('-', '_').replace('.', '_')}_static_{build_type.replace('.', '_')}:",
+                    file=azurefile)
+                print(
+                    f"        TEST_PY_OPTS: --dir {build_type}",
+                    file=azurefile)
         print("  steps:", file=azurefile)
         print("  - script: |", file=azurefile)
         print(f"      cd {distro}", file=azurefile)
@@ -260,21 +269,30 @@ jobs:""",
         print("  strategy:", file=azurefile)
         print("    matrix:", file=azurefile)
         for build_type in build_types:
-            for sanitizer in sanitizers:
-                if sanitizer == "none":
-                    print(
-                        f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}:",
-                        file=azurefile)
-                    print(
-                        f"        TEST_PY_OPTS: --dir {build_type}",
-                        file=azurefile)
-                else:
-                    print(
-                        f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}_{sanitizer}:",
-                        file=azurefile)
-                    print(
-                        f"        TEST_PY_OPTS: --dir {build_type} --generator_option=-Dsan={sanitizer}",
-                        file=azurefile)
+            if build_type.endswith("debug.nounity") or build_type.endswith(
+                    "debug.unity"):
+                for sanitizer in sanitizers:
+                    if sanitizer == "none":
+                        print(
+                            f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}:",
+                            file=azurefile)
+                        print(
+                            f"        TEST_PY_OPTS: --dir {build_type}",
+                            file=azurefile)
+                    else:
+                        print(
+                            f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}_sanitize_{sanitizer}:",
+                            file=azurefile)
+                        print(
+                            f"        TEST_PY_OPTS: --dir {build_type} --generator_option=-Dsan={sanitizer}",
+                            file=azurefile)
+            else:
+                print(
+                    f"      {distro.replace('-', '_').replace('.', '_')}_nonstatic_{build_type.replace('.', '_')}:",
+                    file=azurefile)
+                print(
+                    f"        TEST_PY_OPTS: --dir {build_type}",
+                    file=azurefile)
         print("  steps:", file=azurefile)
         print("  - script: |", file=azurefile)
         print(f"      cd {distro}", file=azurefile)
