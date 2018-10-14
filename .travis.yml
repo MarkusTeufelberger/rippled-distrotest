@@ -20,6 +20,7 @@ env:
   - TEST_PY_OPTS="" DISTRO=debian-sid
   - TEST_PY_OPTS="" DISTRO=fedora-27
   - TEST_PY_OPTS="" DISTRO=fedora-28
+  - TEST_PY_OPTS="" DISTRO=fedora-29
   - TEST_PY_OPTS="" DISTRO=fedora-rawhide
   - TEST_PY_OPTS="" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="" DISTRO=opensuse-leap-15
@@ -41,6 +42,7 @@ env:
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-sid
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-27
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-28
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-29
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-rawhide
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-15

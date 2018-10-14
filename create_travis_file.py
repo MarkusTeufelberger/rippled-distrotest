@@ -14,6 +14,7 @@ distros = [
     "debian-sid",
     "fedora-27",
     "fedora-28",
+    "fedora-29",
     "fedora-rawhide",
     "opensuse-leap-42",
     "opensuse-leap-15",
@@ -42,6 +43,7 @@ broken_distros = [
     "debian-sid",  # boost 1.67 already in testing
     "fedora-27",
     "fedora-28",
+    "fedora-29",
     "fedora-rawhide",
     "opensuse-leap-42",
     "opensuse-leap-15",
@@ -106,7 +108,8 @@ env:""",
         print(f"  # {test_py_opt[1]}", file=travisfile)
         # commandline option(s) and distro
         for distro in distros:
-            if test_py_opt[1] == "default build" or distro not in broken_distros:
+            if test_py_opt[
+                    1] == "default build" or distro not in broken_distros:
                 print(
                     f'  - TEST_PY_OPTS="{test_py_opt[0]}" DISTRO={distro}',
                     file=travisfile)
