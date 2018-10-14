@@ -69,6 +69,12 @@ Currently supported: Follows https://access.redhat.com/support/policy/updates/er
 
 The only distro Ripple currently ships pre-built binaries for (https://mirrors.ripple.com/rpm/) and one of 2 supported platforms (https://ripple.com/build/rippled-setup/#installing-rippled)
 
+### 6
+
+Boost: 1.41.0 (https://pkgs.org/download/boost)
+
+Not even attempted to build.
+
 ### 7
 
 Boost: 1.53.0 (https://pkgs.org/download/boost)
