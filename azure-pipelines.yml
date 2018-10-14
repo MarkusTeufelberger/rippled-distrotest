@@ -344,7 +344,7 @@ jobs:
 - job: alpine_3_5_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.5-static-smoketest
+  dependsOn: alpine_3_5_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -404,7 +404,7 @@ jobs:
 - job: alpine_3_5_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.5-nonstatic-smoketest
+  dependsOn: alpine_3_5_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -464,7 +464,7 @@ jobs:
 - job: alpine_3_6_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.6-static-smoketest
+  dependsOn: alpine_3_6_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -524,7 +524,7 @@ jobs:
 - job: alpine_3_6_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.6-nonstatic-smoketest
+  dependsOn: alpine_3_6_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -584,7 +584,7 @@ jobs:
 - job: alpine_3_7_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.7-static-smoketest
+  dependsOn: alpine_3_7_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -644,7 +644,7 @@ jobs:
 - job: alpine_3_7_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.7-nonstatic-smoketest
+  dependsOn: alpine_3_7_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -704,7 +704,7 @@ jobs:
 - job: alpine_3_8_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.8-static-smoketest
+  dependsOn: alpine_3_8_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -764,7 +764,7 @@ jobs:
 - job: alpine_3_8_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-3.8-nonstatic-smoketest
+  dependsOn: alpine_3_8_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -824,7 +824,7 @@ jobs:
 - job: alpine_edge_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-edge-static-smoketest
+  dependsOn: alpine_edge_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -884,7 +884,7 @@ jobs:
 - job: alpine_edge_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine-edge-nonstatic-smoketest
+  dependsOn: alpine_edge_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -944,7 +944,7 @@ jobs:
 - job: archlinux_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: archlinux-static-smoketest
+  dependsOn: archlinux_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1004,7 +1004,7 @@ jobs:
 - job: archlinux_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: archlinux-nonstatic-smoketest
+  dependsOn: archlinux_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1064,7 +1064,7 @@ jobs:
 - job: centos_7_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: centos-7-static-smoketest
+  dependsOn: centos_7_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1124,7 +1124,7 @@ jobs:
 - job: centos_7_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: centos-7-nonstatic-smoketest
+  dependsOn: centos_7_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1184,7 +1184,7 @@ jobs:
 - job: debian_jessie_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-jessie-static-smoketest
+  dependsOn: debian_jessie_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1244,7 +1244,7 @@ jobs:
 - job: debian_jessie_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-jessie-nonstatic-smoketest
+  dependsOn: debian_jessie_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1304,7 +1304,7 @@ jobs:
 - job: debian_stretch_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-stretch-static-smoketest
+  dependsOn: debian_stretch_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1364,7 +1364,7 @@ jobs:
 - job: debian_stretch_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-stretch-nonstatic-smoketest
+  dependsOn: debian_stretch_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1424,7 +1424,7 @@ jobs:
 - job: debian_buster_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-buster-static-smoketest
+  dependsOn: debian_buster_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1484,7 +1484,7 @@ jobs:
 - job: debian_buster_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-buster-nonstatic-smoketest
+  dependsOn: debian_buster_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1544,7 +1544,7 @@ jobs:
 - job: debian_sid_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-sid-static-smoketest
+  dependsOn: debian_sid_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1604,7 +1604,7 @@ jobs:
 - job: debian_sid_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: debian-sid-nonstatic-smoketest
+  dependsOn: debian_sid_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1664,7 +1664,7 @@ jobs:
 - job: fedora_27_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-27-static-smoketest
+  dependsOn: fedora_27_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1724,7 +1724,7 @@ jobs:
 - job: fedora_27_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-27-nonstatic-smoketest
+  dependsOn: fedora_27_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1784,7 +1784,7 @@ jobs:
 - job: fedora_28_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-28-static-smoketest
+  dependsOn: fedora_28_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1844,7 +1844,7 @@ jobs:
 - job: fedora_28_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-28-nonstatic-smoketest
+  dependsOn: fedora_28_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1904,7 +1904,7 @@ jobs:
 - job: fedora_29_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-29-static-smoketest
+  dependsOn: fedora_29_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -1964,7 +1964,7 @@ jobs:
 - job: fedora_29_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-29-nonstatic-smoketest
+  dependsOn: fedora_29_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2024,7 +2024,7 @@ jobs:
 - job: fedora_rawhide_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-rawhide-static-smoketest
+  dependsOn: fedora_rawhide_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2084,7 +2084,7 @@ jobs:
 - job: fedora_rawhide_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora-rawhide-nonstatic-smoketest
+  dependsOn: fedora_rawhide_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2144,7 +2144,7 @@ jobs:
 - job: opensuse_leap_42_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-leap-42-static-smoketest
+  dependsOn: opensuse_leap_42_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2204,7 +2204,7 @@ jobs:
 - job: opensuse_leap_42_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-leap-42-nonstatic-smoketest
+  dependsOn: opensuse_leap_42_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2264,7 +2264,7 @@ jobs:
 - job: opensuse_leap_15_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-leap-15-static-smoketest
+  dependsOn: opensuse_leap_15_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2324,7 +2324,7 @@ jobs:
 - job: opensuse_leap_15_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-leap-15-nonstatic-smoketest
+  dependsOn: opensuse_leap_15_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2384,7 +2384,7 @@ jobs:
 - job: opensuse_tumbleweed_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-tumbleweed-static-smoketest
+  dependsOn: opensuse_tumbleweed_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2444,7 +2444,7 @@ jobs:
 - job: opensuse_tumbleweed_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse-tumbleweed-nonstatic-smoketest
+  dependsOn: opensuse_tumbleweed_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2504,7 +2504,7 @@ jobs:
 - job: ubuntu_16_04_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-16.04-static-smoketest
+  dependsOn: ubuntu_16_04_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2564,7 +2564,7 @@ jobs:
 - job: ubuntu_16_04_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-16.04-nonstatic-smoketest
+  dependsOn: ubuntu_16_04_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2624,7 +2624,7 @@ jobs:
 - job: ubuntu_18_04_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-18.04-static-smoketest
+  dependsOn: ubuntu_18_04_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2684,7 +2684,7 @@ jobs:
 - job: ubuntu_18_04_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-18.04-nonstatic-smoketest
+  dependsOn: ubuntu_18_04_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2744,7 +2744,7 @@ jobs:
 - job: ubuntu_18_10_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-18.10-static-smoketest
+  dependsOn: ubuntu_18_10_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
@@ -2804,7 +2804,7 @@ jobs:
 - job: ubuntu_18_10_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: ubuntu-18.10-nonstatic-smoketest
+  dependsOn: ubuntu_18_10_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:

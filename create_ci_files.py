@@ -208,7 +208,9 @@ jobs:""",
             file=azurefile)
         print("  pool:", file=azurefile)
         print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
-        print(f"  dependsOn: {distro}-static-smoketest", file=azurefile)
+        print(
+            f"  dependsOn: {distro.replace('-', '_').replace('.', '_')}_static_smoketest",
+            file=azurefile)
         print("  condition: succeeded()", file=azurefile)
         print("  strategy:", file=azurefile)
         print("    matrix:", file=azurefile)
@@ -232,7 +234,9 @@ jobs:""",
             file=azurefile)
         print("  pool:", file=azurefile)
         print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
-        print(f"  dependsOn: {distro}-nonstatic-smoketest", file=azurefile)
+        print(
+            f"  dependsOn: {distro.replace('-', '_').replace('.', '_')}_nonstatic_smoketest",
+            file=azurefile)
         print("  condition: succeeded()", file=azurefile)
         print("  strategy:", file=azurefile)
         print("    matrix:", file=azurefile)
