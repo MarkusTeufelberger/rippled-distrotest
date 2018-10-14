@@ -5,6 +5,8 @@ Travis builds of a small subset of possible builds:
 This project aims to regularly build and test all possible build variants of
 https://github.com/ripple/rippled/ on different Linux distributions using their
 upstream packages.
+This means that for example while it might be possible to build Boost manually,
+that's out of scope for this project.
 
 Ideally the `build_all.sh` script from the /Builds folder in the rippled repo should run with 0 errors on every distro out there.
 
