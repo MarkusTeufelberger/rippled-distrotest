@@ -3,7 +3,7 @@ Travis builds of a small subset of possible builds:
 [![Build Status](https://travis-ci.org/MarkusTeufelberger/rippled-distrotest.svg?branch=master)](https://travis-ci.org/MarkusTeufelberger/rippled-distrotest)
 
 [Azure DevOps](https://azure.microsoft.com/en-us/blog/introducing-azure-devops/) builds:
-
+[![Build Status](https://dev.azure.com/markusteufelberger/rippled-distrotest/_apis/build/status/MarkusTeufelberger.rippled-distrotest)](https://dev.azure.com/markusteufelberger/rippled-distrotest/_build/latest?definitionId=1)
 
 This project aims to regularly build and test all possible build variants of
 https://github.com/ripple/rippled/ on different Linux distributions using their
