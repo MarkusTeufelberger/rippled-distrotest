@@ -143,7 +143,9 @@ jobs:""",
     # initial smoketest builds
     for distro in distros:
         # static
-        print(f"- job: {distro}-static-smoketest", file=azurefile)
+        print(
+            f"- job: {distro.replace('-', '_').replace('.', '_')}_static_smoketest",
+            file=azurefile)
         print("  pool:", file=azurefile)
         print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
         print("  steps:", file=azurefile)
@@ -156,7 +158,9 @@ jobs:""",
             f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"',
             file=azurefile)
         # nonstatic
-        print(f"- job: {distro}-nonstatic-smoketest", file=azurefile)
+        print(
+            f"- job: {distro.replace('-', '_').replace('.', '_')}_nonstatic_smoketest",
+            file=azurefile)
         print("  pool:", file=azurefile)
         print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
         print("  steps:", file=azurefile)
