@@ -133,12 +133,7 @@ script:
 with open("azure-pipelines.yml", "w") as azurefile:
     # header
     print(
-        """# Use Ubuntu Xenial based Docker hosts:
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=vsts&tabs=yaml#build-environment
-pool:
-  vmImage: "Ubuntu 16.04"
-
-# To prevent excessive use of resources, start with a simple static and nonstatic build.
+        """# To prevent excessive use of resources, start with a simple static and nonstatic build.
 # Then make every other build a matrix build depending on the initial one succeeding.
 
 # Job dependencies: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=vsts&tabs=yaml#job-status-functions
@@ -149,6 +144,8 @@ jobs:""",
     for distro in distros:
         # static
         print(f"- job: {distro}-static-smoketest", file=azurefile)
+        print("  pool:", file=azurefile)
+        print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
         print("  steps:", file=azurefile)
         print("  - script: |", file=azurefile)
         print(f"      cd {distro}", file=azurefile)
@@ -160,6 +157,8 @@ jobs:""",
             file=azurefile)
         # nonstatic
         print(f"- job: {distro}-nonstatic-smoketest", file=azurefile)
+        print("  pool:", file=azurefile)
+        print("    vmImage: 'Ubuntu 16.04'", file=azurefile)
         print("  steps:", file=azurefile)
         print("  - script: |", file=azurefile)
         print(f"      cd {distro}", file=azurefile)
