@@ -3,6 +3,7 @@ Travis builds of a small subset of possible builds:
 [![Build Status](https://travis-ci.org/MarkusTeufelberger/rippled-distrotest.svg?branch=master)](https://travis-ci.org/MarkusTeufelberger/rippled-distrotest)
 
 [Azure DevOps](https://azure.microsoft.com/en-us/blog/introducing-azure-devops/) builds:
+
 [![Build Status](https://dev.azure.com/markusteufelberger/rippled-distrotest/_apis/build/status/MarkusTeufelberger.rippled-distrotest)](https://dev.azure.com/markusteufelberger/rippled-distrotest/_build/latest?definitionId=1)
 
 This project aims to regularly build and test all possible build variants of
@@ -52,7 +53,7 @@ Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 Upstream: https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled
 
 One of the few distros that at least have an actual rippled package upstream (in community).
-It requires a few patches that still weren't accepted in rippled so far (https://github.com/alpinelinux/aports/tree/master/community/rippled).
+It requires a few patches that still weren't released in rippled so far (https://github.com/alpinelinux/aports/tree/master/community/rippled).
 
 ## Arch Linux
 

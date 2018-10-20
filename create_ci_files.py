@@ -26,13 +26,11 @@ distros = [
 
 # these don't even manage to build the default build
 broken_distros = [
-    # need patches/fixes upstream, boost too old and not backported
+    # boost too old and not backported
     "alpine-3.5",
     "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",
-    # need patches/fixes upstream
-    "alpine-edge",
     # pretty much everything too old
     "centos-7",
     # boost too old and not backported, cmake too old
