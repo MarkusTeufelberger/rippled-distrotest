@@ -188,7 +188,7 @@ jobs:""",
             f"      docker build --pull --no-cache -t rippled/{distro} .",
             file=azurefile)
         print(
-            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"',
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"',
             file=azurefile)
         # nonstatic
         print(
@@ -203,7 +203,7 @@ jobs:""",
             f"      docker build --pull --no-cache -t rippled/{distro} .",
             file=azurefile)
         print(
-            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"',
+            f'      docker run --rm -t rippled/{distro} /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"',
             file=azurefile)
     # all possible builds, depend on the smoketest being successful
     print("# actual matrix builds start here", file=azurefile)

@@ -11,7 +11,7 @@ jobs:
   - script: |
       cd alpine-3.5
       docker build --pull --no-cache -t rippled/alpine-3.5 .
-      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: alpine_3_5_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -19,7 +19,7 @@ jobs:
   - script: |
       cd alpine-3.5
       docker build --pull --no-cache -t rippled/alpine-3.5 .
-      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/alpine-3.5 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: alpine_3_6_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -27,7 +27,7 @@ jobs:
   - script: |
       cd alpine-3.6
       docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: alpine_3_6_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -35,7 +35,7 @@ jobs:
   - script: |
       cd alpine-3.6
       docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: alpine_3_7_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -43,7 +43,7 @@ jobs:
   - script: |
       cd alpine-3.7
       docker build --pull --no-cache -t rippled/alpine-3.7 .
-      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: alpine_3_7_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -51,7 +51,7 @@ jobs:
   - script: |
       cd alpine-3.7
       docker build --pull --no-cache -t rippled/alpine-3.7 .
-      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/alpine-3.7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: alpine_3_8_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -59,7 +59,7 @@ jobs:
   - script: |
       cd alpine-3.8
       docker build --pull --no-cache -t rippled/alpine-3.8 .
-      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: alpine_3_8_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -67,7 +67,7 @@ jobs:
   - script: |
       cd alpine-3.8
       docker build --pull --no-cache -t rippled/alpine-3.8 .
-      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/alpine-3.8 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: alpine_edge_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -75,7 +75,7 @@ jobs:
   - script: |
       cd alpine-edge
       docker build --pull --no-cache -t rippled/alpine-edge .
-      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: alpine_edge_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -83,7 +83,7 @@ jobs:
   - script: |
       cd alpine-edge
       docker build --pull --no-cache -t rippled/alpine-edge .
-      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/alpine-edge /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: archlinux_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -91,7 +91,7 @@ jobs:
   - script: |
       cd archlinux
       docker build --pull --no-cache -t rippled/archlinux .
-      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: archlinux_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -99,7 +99,7 @@ jobs:
   - script: |
       cd archlinux
       docker build --pull --no-cache -t rippled/archlinux .
-      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/archlinux /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: centos_7_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -107,7 +107,7 @@ jobs:
   - script: |
       cd centos-7
       docker build --pull --no-cache -t rippled/centos-7 .
-      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: centos_7_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -115,7 +115,7 @@ jobs:
   - script: |
       cd centos-7
       docker build --pull --no-cache -t rippled/centos-7 .
-      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/centos-7 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: debian_jessie_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -123,7 +123,7 @@ jobs:
   - script: |
       cd debian-jessie
       docker build --pull --no-cache -t rippled/debian-jessie .
-      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: debian_jessie_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -131,7 +131,7 @@ jobs:
   - script: |
       cd debian-jessie
       docker build --pull --no-cache -t rippled/debian-jessie .
-      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/debian-jessie /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: debian_stretch_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -139,7 +139,7 @@ jobs:
   - script: |
       cd debian-stretch
       docker build --pull --no-cache -t rippled/debian-stretch .
-      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: debian_stretch_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -147,7 +147,7 @@ jobs:
   - script: |
       cd debian-stretch
       docker build --pull --no-cache -t rippled/debian-stretch .
-      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/debian-stretch /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: debian_buster_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -155,7 +155,7 @@ jobs:
   - script: |
       cd debian-buster
       docker build --pull --no-cache -t rippled/debian-buster .
-      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: debian_buster_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -163,7 +163,7 @@ jobs:
   - script: |
       cd debian-buster
       docker build --pull --no-cache -t rippled/debian-buster .
-      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/debian-buster /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: debian_sid_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -171,7 +171,7 @@ jobs:
   - script: |
       cd debian-sid
       docker build --pull --no-cache -t rippled/debian-sid .
-      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: debian_sid_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -179,7 +179,7 @@ jobs:
   - script: |
       cd debian-sid
       docker build --pull --no-cache -t rippled/debian-sid .
-      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: fedora_27_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -187,7 +187,7 @@ jobs:
   - script: |
       cd fedora-27
       docker build --pull --no-cache -t rippled/fedora-27 .
-      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: fedora_27_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -195,7 +195,7 @@ jobs:
   - script: |
       cd fedora-27
       docker build --pull --no-cache -t rippled/fedora-27 .
-      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/fedora-27 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: fedora_28_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -203,7 +203,7 @@ jobs:
   - script: |
       cd fedora-28
       docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: fedora_28_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -211,7 +211,7 @@ jobs:
   - script: |
       cd fedora-28
       docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: fedora_29_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -219,7 +219,7 @@ jobs:
   - script: |
       cd fedora-29
       docker build --pull --no-cache -t rippled/fedora-29 .
-      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: fedora_29_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -227,7 +227,7 @@ jobs:
   - script: |
       cd fedora-29
       docker build --pull --no-cache -t rippled/fedora-29 .
-      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/fedora-29 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: fedora_rawhide_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -235,7 +235,7 @@ jobs:
   - script: |
       cd fedora-rawhide
       docker build --pull --no-cache -t rippled/fedora-rawhide .
-      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: fedora_rawhide_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -243,7 +243,7 @@ jobs:
   - script: |
       cd fedora-rawhide
       docker build --pull --no-cache -t rippled/fedora-rawhide .
-      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: opensuse_leap_42_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -251,7 +251,7 @@ jobs:
   - script: |
       cd opensuse-leap-42
       docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: opensuse_leap_42_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -259,7 +259,7 @@ jobs:
   - script: |
       cd opensuse-leap-42
       docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: opensuse_leap_15_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -267,7 +267,7 @@ jobs:
   - script: |
       cd opensuse-leap-15
       docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: opensuse_leap_15_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -275,7 +275,7 @@ jobs:
   - script: |
       cd opensuse-leap-15
       docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: opensuse_tumbleweed_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -283,7 +283,7 @@ jobs:
   - script: |
       cd opensuse-tumbleweed
       docker build --pull --no-cache -t rippled/opensuse-tumbleweed .
-      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: opensuse_tumbleweed_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -291,7 +291,7 @@ jobs:
   - script: |
       cd opensuse-tumbleweed
       docker build --pull --no-cache -t rippled/opensuse-tumbleweed .
-      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/opensuse-tumbleweed /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: ubuntu_16_04_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -299,7 +299,7 @@ jobs:
   - script: |
       cd ubuntu-16.04
       docker build --pull --no-cache -t rippled/ubuntu-16.04 .
-      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: ubuntu_16_04_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -307,7 +307,7 @@ jobs:
   - script: |
       cd ubuntu-16.04
       docker build --pull --no-cache -t rippled/ubuntu-16.04 .
-      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/ubuntu-16.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: ubuntu_18_04_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -315,7 +315,7 @@ jobs:
   - script: |
       cd ubuntu-18.04
       docker build --pull --no-cache -t rippled/ubuntu-18.04 .
-      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: ubuntu_18_04_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -323,7 +323,7 @@ jobs:
   - script: |
       cd ubuntu-18.04
       docker build --pull --no-cache -t rippled/ubuntu-18.04 .
-      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/ubuntu-18.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: ubuntu_18_10_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -331,7 +331,7 @@ jobs:
   - script: |
       cd ubuntu-18.10
       docker build --pull --no-cache -t rippled/ubuntu-18.10 .
-      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON"
+      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
 - job: ubuntu_18_10_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -339,7 +339,7 @@ jobs:
   - script: |
       cd ubuntu-18.10
       docker build --pull --no-cache -t rippled/ubuntu-18.10 .
-      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF"
+      docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 # actual matrix builds start here
 - job: alpine_3_5_static_matrix
   pool:
