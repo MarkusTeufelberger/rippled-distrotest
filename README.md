@@ -20,12 +20,6 @@ Status at the moment:
 
 Currently supported: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases
 
-### 3.5
-
-Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.5)
-
-Requires musl compatibility patches.
-
 ### 3.6
 
 Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.6)

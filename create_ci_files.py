@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 distros = [
-    "alpine-3.5",
     "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",
@@ -27,7 +26,6 @@ distros = [
 # these don't even manage to build the default build
 broken_distros = [
     # boost too old and not backported
-    "alpine-3.5",
     "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",

@@ -7,7 +7,6 @@ services:
 # Travis-ci is rather limited in that regards though
 env:
   # default build
-  - TEST_PY_OPTS="" DISTRO=alpine-3.5
   - TEST_PY_OPTS="" DISTRO=alpine-3.6
   - TEST_PY_OPTS="" DISTRO=alpine-3.7
   - TEST_PY_OPTS="" DISTRO=alpine-3.8
@@ -29,7 +28,6 @@ env:
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.04
   - TEST_PY_OPTS="" DISTRO=ubuntu-18.10
   # default build
-  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.5
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.6
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.7
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.8
