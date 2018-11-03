@@ -91,7 +91,7 @@ Another issue is the old CMake version.
 
 Currently supported: https://wiki.debian.org/DebianReleases#Production_Releases and https://wiki.debian.org/LTS
 
-### Jessie
+### Jessie (8 - Oldstable)
 
 Boost: 1.55.0 (https://packages.debian.org/jessie/libboost-all-dev)
 
@@ -101,11 +101,11 @@ No backports are available, but rippled builds on newer Debian versions.
 
 Another issue is the old CMake version.
 
-### Stretch
+### Stretch (9 - Stable)
 
 Boost: 1.62.0 (https://packages.debian.org/stretch/libboost-all-dev)
 
-### Buster
+### Buster(10 - Testing)
 
 Boost: 1.62.0 (https://packages.debian.org/buster/libboost-all-dev)
 
@@ -162,7 +162,7 @@ Currently supported: https://wiki.ubuntu.com/Releases
 Officially supported by Ripple (https://ripple.com/build/rippled-setup/#installing-rippled) "Ubuntu 15.04 or later".
 No deb packages offered, only rpm.
 
-### 16.04 (LTS)
+### 16.04 - Xenial Xerus (LTS)
 
 Boost: 1.58.0 (https://packages.ubuntu.com/xenial/libboost-all-dev)
 
@@ -170,10 +170,10 @@ Boost too old to build.
 
 No backports for libboost are available, but rippled builds on newer Ubuntu versions.
 
-### 18.04 (LTS)
+### 18.04 - Bionic Beaver (LTS)
 
 Boost: 1.65.1 (https://packages.ubuntu.com/bionic/libboost-all-dev)
 
-### 18.10
+### 18.10 - Cosmic Cuttlefish
 
 Boost: 1.67.0 (https://packages.ubuntu.com/cosmic/libboost-all-dev)
