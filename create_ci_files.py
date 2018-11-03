@@ -11,7 +11,6 @@ distros = [
     "debian-stretch",
     "debian-buster",
     "debian-sid",
-    "fedora-27",
     "fedora-28",
     "fedora-29",
     "fedora-rawhide",
@@ -37,7 +36,6 @@ broken_distros = [
     "debian-stretch",
     "debian-buster",
     "debian-sid",  # boost 1.67 already in testing
-    "fedora-27",
     "fedora-28",
     "fedora-29",
     "fedora-rawhide",

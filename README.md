@@ -117,10 +117,6 @@ Boost: 1.62.0 (https://packages.debian.org/sid/libboost-all-dev)
 
 Currently supported: https://fedoraproject.org/wiki/Releases#Current_Supported_Releases
 
-### 27
-
-Boost: 1.64.0 (https://apps.fedoraproject.org/packages/boost)
-
 ### 28
 
 Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)

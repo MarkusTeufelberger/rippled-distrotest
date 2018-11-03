@@ -17,7 +17,6 @@ env:
   - TEST_PY_OPTS="" DISTRO=debian-stretch
   - TEST_PY_OPTS="" DISTRO=debian-buster
   - TEST_PY_OPTS="" DISTRO=debian-sid
-  - TEST_PY_OPTS="" DISTRO=fedora-27
   - TEST_PY_OPTS="" DISTRO=fedora-28
   - TEST_PY_OPTS="" DISTRO=fedora-29
   - TEST_PY_OPTS="" DISTRO=fedora-rawhide
@@ -38,7 +37,6 @@ env:
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-stretch
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-buster
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-sid
-  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-27
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-28
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-29
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-rawhide
