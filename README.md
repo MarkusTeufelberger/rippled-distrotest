@@ -105,7 +105,7 @@ Another issue is the old CMake version.
 
 Boost: 1.62.0 (https://packages.debian.org/stretch/libboost-all-dev)
 
-### Buster(10 - Testing)
+### Buster (10 - Testing)
 
 Boost: 1.62.0 (https://packages.debian.org/buster/libboost-all-dev)
 
