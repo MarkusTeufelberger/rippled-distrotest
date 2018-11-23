@@ -103,11 +103,11 @@ Boost: 1.62.0 (https://packages.debian.org/stretch/libboost-all-dev)
 
 ### Buster (10 - Testing)
 
-Boost: 1.62.0 (https://packages.debian.org/buster/libboost-all-dev)
+Boost: 1.67.0 (https://packages.debian.org/buster/libboost-all-dev)
 
 ### Sid (Rolling Release)
 
-Boost: 1.62.0 (https://packages.debian.org/sid/libboost-all-dev)
+Boost: 1.67.0 (https://packages.debian.org/sid/libboost-all-dev)
 
 ## Fedora
 
@@ -155,7 +155,7 @@ Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 Currently supported: https://wiki.ubuntu.com/Releases
 
-Officially supported by Ripple (https://ripple.com/build/rippled-setup/#installing-rippled) "Ubuntu 15.04 or later".
+Officially supported by Ripple (https://developers.ripple.com/system-requirements.html#minimum-specifications) "Ubuntu 16.04+".
 No deb packages offered, only rpm.
 
 ### 16.04 - Xenial Xerus (LTS)

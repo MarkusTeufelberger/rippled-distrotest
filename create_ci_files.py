@@ -35,8 +35,6 @@ broken_distros = [
     "debian-jessie",
     # boost too old and not backported
     "debian-stretch",
-    "debian-buster",
-    "debian-sid",  # boost 1.67 already in testing
     "fedora-28",
     "fedora-29",
     "fedora-rawhide",
