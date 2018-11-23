@@ -308,6 +308,22 @@ jobs:
       cd ubuntu-18.10
       docker build --pull --no-cache -t rippled/ubuntu-18.10 .
       docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
+- job: ubuntu_19_04_static_smoketest
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - script: |
+      cd ubuntu-19.04
+      docker build --pull --no-cache -t rippled/ubuntu-19.04 .
+      docker run --rm -t rippled/ubuntu-19.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
+- job: ubuntu_19_04_nonstatic_smoketest
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - script: |
+      cd ubuntu-19.04
+      docker build --pull --no-cache -t rippled/ubuntu-19.04 .
+      docker run --rm -t rippled/ubuntu-19.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 # actual matrix builds start here
 - job: alpine_3_6_static_matrix
   pool:
@@ -3805,3 +3821,187 @@ jobs:
       cd ubuntu-18.10
       docker build --pull --no-cache -t rippled/ubuntu-18.10 .
       docker run --rm -t rippled/ubuntu-18.10 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
+- job: ubuntu_19_04_static_matrix
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  dependsOn: ubuntu_19_04_static_smoketest
+  condition: succeeded()
+  strategy:
+    matrix:
+      ubuntu_19_04_static_gcc_debug_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.nounity
+      ubuntu_19_04_static_gcc_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
+      ubuntu_19_04_static_gcc_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
+      ubuntu_19_04_static_gcc_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
+      ubuntu_19_04_static_gcc_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
+      ubuntu_19_04_static_gcc_debug_unity:
+        TEST_PY_OPTS: --dir gcc.debug.unity
+      ubuntu_19_04_static_gcc_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
+      ubuntu_19_04_static_gcc_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
+      ubuntu_19_04_static_gcc_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
+      ubuntu_19_04_static_gcc_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
+      ubuntu_19_04_static_gcc_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
+      ubuntu_19_04_static_gcc_debug_coverage_unity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
+      ubuntu_19_04_static_gcc_release_nounity:
+        TEST_PY_OPTS: --dir gcc.release.nounity
+      ubuntu_19_04_static_gcc_release_unity:
+        TEST_PY_OPTS: --dir gcc.release.unity
+      ubuntu_19_04_static_gcc_debug_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
+      ubuntu_19_04_static_gcc_debug_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.unity.profile
+      ubuntu_19_04_static_gcc_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
+      ubuntu_19_04_static_gcc_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
+      ubuntu_19_04_static_gcc_release_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.release.nounity.profile
+      ubuntu_19_04_static_gcc_release_unity_profile:
+        TEST_PY_OPTS: --dir gcc.release.unity.profile
+      ubuntu_19_04_static_clang_debug_nounity:
+        TEST_PY_OPTS: --dir clang.debug.nounity
+      ubuntu_19_04_static_clang_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
+      ubuntu_19_04_static_clang_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
+      ubuntu_19_04_static_clang_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
+      ubuntu_19_04_static_clang_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
+      ubuntu_19_04_static_clang_debug_unity:
+        TEST_PY_OPTS: --dir clang.debug.unity
+      ubuntu_19_04_static_clang_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
+      ubuntu_19_04_static_clang_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
+      ubuntu_19_04_static_clang_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
+      ubuntu_19_04_static_clang_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
+      ubuntu_19_04_static_clang_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
+      ubuntu_19_04_static_clang_debug_coverage_unity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity
+      ubuntu_19_04_static_clang_release_nounity:
+        TEST_PY_OPTS: --dir clang.release.nounity
+      ubuntu_19_04_static_clang_release_unity:
+        TEST_PY_OPTS: --dir clang.release.unity
+      ubuntu_19_04_static_clang_debug_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.nounity.profile
+      ubuntu_19_04_static_clang_debug_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.unity.profile
+      ubuntu_19_04_static_clang_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
+      ubuntu_19_04_static_clang_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
+      ubuntu_19_04_static_clang_release_nounity_profile:
+        TEST_PY_OPTS: --dir clang.release.nounity.profile
+      ubuntu_19_04_static_clang_release_unity_profile:
+        TEST_PY_OPTS: --dir clang.release.unity.profile
+  steps:
+  - script: |
+      cd ubuntu-19.04
+      docker build --pull --no-cache -t rippled/ubuntu-19.04 .
+      docker run --rm -t rippled/ubuntu-19.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
+- job: ubuntu_19_04_nonstatic_matrix
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  dependsOn: ubuntu_19_04_nonstatic_smoketest
+  condition: succeeded()
+  strategy:
+    matrix:
+      ubuntu_19_04_nonstatic_gcc_debug_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.nounity
+      ubuntu_19_04_nonstatic_gcc_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
+      ubuntu_19_04_nonstatic_gcc_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
+      ubuntu_19_04_nonstatic_gcc_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
+      ubuntu_19_04_nonstatic_gcc_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
+      ubuntu_19_04_nonstatic_gcc_debug_unity:
+        TEST_PY_OPTS: --dir gcc.debug.unity
+      ubuntu_19_04_nonstatic_gcc_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
+      ubuntu_19_04_nonstatic_gcc_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
+      ubuntu_19_04_nonstatic_gcc_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
+      ubuntu_19_04_nonstatic_gcc_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
+      ubuntu_19_04_nonstatic_gcc_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
+      ubuntu_19_04_nonstatic_gcc_debug_coverage_unity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
+      ubuntu_19_04_nonstatic_gcc_release_nounity:
+        TEST_PY_OPTS: --dir gcc.release.nounity
+      ubuntu_19_04_nonstatic_gcc_release_unity:
+        TEST_PY_OPTS: --dir gcc.release.unity
+      ubuntu_19_04_nonstatic_gcc_debug_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
+      ubuntu_19_04_nonstatic_gcc_debug_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.unity.profile
+      ubuntu_19_04_nonstatic_gcc_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
+      ubuntu_19_04_nonstatic_gcc_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
+      ubuntu_19_04_nonstatic_gcc_release_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.release.nounity.profile
+      ubuntu_19_04_nonstatic_gcc_release_unity_profile:
+        TEST_PY_OPTS: --dir gcc.release.unity.profile
+      ubuntu_19_04_nonstatic_clang_debug_nounity:
+        TEST_PY_OPTS: --dir clang.debug.nounity
+      ubuntu_19_04_nonstatic_clang_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
+      ubuntu_19_04_nonstatic_clang_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
+      ubuntu_19_04_nonstatic_clang_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
+      ubuntu_19_04_nonstatic_clang_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
+      ubuntu_19_04_nonstatic_clang_debug_unity:
+        TEST_PY_OPTS: --dir clang.debug.unity
+      ubuntu_19_04_nonstatic_clang_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
+      ubuntu_19_04_nonstatic_clang_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
+      ubuntu_19_04_nonstatic_clang_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
+      ubuntu_19_04_nonstatic_clang_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
+      ubuntu_19_04_nonstatic_clang_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
+      ubuntu_19_04_nonstatic_clang_debug_coverage_unity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity
+      ubuntu_19_04_nonstatic_clang_release_nounity:
+        TEST_PY_OPTS: --dir clang.release.nounity
+      ubuntu_19_04_nonstatic_clang_release_unity:
+        TEST_PY_OPTS: --dir clang.release.unity
+      ubuntu_19_04_nonstatic_clang_debug_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.nounity.profile
+      ubuntu_19_04_nonstatic_clang_debug_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.unity.profile
+      ubuntu_19_04_nonstatic_clang_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
+      ubuntu_19_04_nonstatic_clang_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
+      ubuntu_19_04_nonstatic_clang_release_nounity_profile:
+        TEST_PY_OPTS: --dir clang.release.nounity.profile
+      ubuntu_19_04_nonstatic_clang_release_unity_profile:
+        TEST_PY_OPTS: --dir clang.release.unity.profile
+  steps:
+  - script: |
+      cd ubuntu-19.04
+      docker build --pull --no-cache -t rippled/ubuntu-19.04 .
+      docker run --rm -t rippled/ubuntu-19.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"

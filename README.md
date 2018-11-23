@@ -57,11 +57,11 @@ Currently supported: Rolling release
 
 Boost: 1.68.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 
+Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
+
 Upstream: https://aur.archlinux.org/packages/rippled/
 
 Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
-
-Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
 ## CentOS/RHEL
 
@@ -95,11 +95,7 @@ Currently supported: https://wiki.debian.org/DebianReleases#Production_Releases 
 
 Boost: 1.55.0 (https://packages.debian.org/jessie/libboost-all-dev)
 
-Boost too old to build.
-
-No backports are available, but rippled builds on newer Debian versions.
-
-Another issue is the old CMake version.
+CMake too old to build.
 
 ### Stretch (9 - Stable)
 
@@ -166,10 +162,6 @@ No deb packages offered, only rpm.
 
 Boost: 1.58.0 (https://packages.ubuntu.com/xenial/libboost-all-dev)
 
-Boost too old to build.
-
-No backports for libboost are available, but rippled builds on newer Ubuntu versions.
-
 ### 18.04 - Bionic Beaver (LTS)
 
 Boost: 1.65.1 (https://packages.ubuntu.com/bionic/libboost-all-dev)
@@ -177,3 +169,7 @@ Boost: 1.65.1 (https://packages.ubuntu.com/bionic/libboost-all-dev)
 ### 18.10 - Cosmic Cuttlefish
 
 Boost: 1.67.0 (https://packages.ubuntu.com/cosmic/libboost-all-dev)
+
+### 19.04 - Disco Dingo
+
+Boost: 1.67.0 (https://packages.ubuntu.com/disco/libboost-all-dev)

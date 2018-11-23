@@ -20,6 +20,7 @@ distros = [
     "ubuntu-16.04",
     "ubuntu-18.04",
     "ubuntu-18.10",
+    "ubuntu-19.04",
 ]
 
 # these don't even manage to build the default build
