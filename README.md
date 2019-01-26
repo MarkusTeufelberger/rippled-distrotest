@@ -55,7 +55,7 @@ Currently supported: Rolling release
 
 ### (Rolling Release)
 
-Boost: 1.68.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
+Boost: 1.69.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
