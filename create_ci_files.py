@@ -46,10 +46,9 @@ broken_distros = [
 
 travis_test_py_opts = [
     # ("commandline option(s)", "description")
+    ("--dir docs", "documentation build"),
     ("", "default build"),
     ("--generator_option=-Dstatic=OFF", "default build"),
-    # TODO: install doxygen everywhere
-    # ("--dir docs", "documentation build")
     ("--dir clang.release", "clang release build"),
     ("--dir gcc.release", "gcc release build"),
     ("--dir clang.release --generator_option=-Dstatic=OFF",
@@ -101,8 +100,8 @@ env:""",
         print(f"  # {test_py_opt[1]}", file=travisfile)
         # commandline option(s) and distro
         for distro in distros:
-            if test_py_opt[
-                    1] == "default build" or distro not in broken_distros:
+            if test_py_opt[1] in ["default build", "documentation build"
+                                  ] or distro not in broken_distros:
                 print(
                     f'  - TEST_PY_OPTS="{test_py_opt[0]}" DISTRO={distro}',
                     file=travisfile)

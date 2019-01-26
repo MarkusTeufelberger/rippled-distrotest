@@ -18,6 +18,7 @@ RUN  apk add --no-cache \
   protobuf-c-dev \
   openssl-dev \
   boost-dev \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
@@ -29,7 +30,8 @@ RUN  apk add --no-cache \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 

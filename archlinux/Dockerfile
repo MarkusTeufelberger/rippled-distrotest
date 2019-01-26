@@ -14,6 +14,7 @@ RUN  pacman -Syu --noconfirm \
   boost \
   boost-libs \
   python \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
@@ -25,7 +26,8 @@ RUN  pacman -Syu --noconfirm \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 

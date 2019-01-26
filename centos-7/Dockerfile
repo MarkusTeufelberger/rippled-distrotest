@@ -23,6 +23,7 @@ RUN  yum -y install epel-release \
         openssl-static \
         boost-devel \
         boost-static \
+        doxygen \
         && git clone https://github.com/ripple/rippled.git /rippled \
         && ln /usr/bin/ninja-build /usr/bin/ninja \
         && git --version \
@@ -34,7 +35,8 @@ RUN  yum -y install epel-release \
         && pkg-config --version \
         && gcc --version \
         && clang --version \
-        && protoc --version
+        && protoc --version \
+        && doxygen --version
 
 WORKDIR /rippled/Builds
 

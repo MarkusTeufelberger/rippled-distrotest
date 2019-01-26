@@ -22,6 +22,7 @@ RUN  dnf -y upgrade --refresh \
   openssl-static \
   boost-devel \
   boost-static \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
@@ -32,7 +33,8 @@ RUN  dnf -y upgrade --refresh \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 

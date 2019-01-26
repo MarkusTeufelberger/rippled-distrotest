@@ -14,6 +14,7 @@ RUN  zypper --non-interactive update \
   protobuf-c \
   boost_1_61-devel \
   libopenssl-devel \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 99 \
   && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 99 \
@@ -26,7 +27,8 @@ RUN  zypper --non-interactive update \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 

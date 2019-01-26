@@ -15,6 +15,7 @@ RUN  apt-get update \
   libprotobuf-dev \
   libssl-dev \
   libboost-all-dev \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
@@ -25,7 +26,8 @@ RUN  apt-get update \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 

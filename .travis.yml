@@ -6,6 +6,27 @@ services:
 # most builds are with ninja because it automatically uses all available cores
 # Travis-ci is rather limited in that regards though
 env:
+  # documentation build
+  - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.6
+  - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.7
+  - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.8
+  - TEST_PY_OPTS="--dir docs" DISTRO=alpine-edge
+  - TEST_PY_OPTS="--dir docs" DISTRO=archlinux
+  - TEST_PY_OPTS="--dir docs" DISTRO=centos-7
+  - TEST_PY_OPTS="--dir docs" DISTRO=debian-jessie
+  - TEST_PY_OPTS="--dir docs" DISTRO=debian-stretch
+  - TEST_PY_OPTS="--dir docs" DISTRO=debian-buster
+  - TEST_PY_OPTS="--dir docs" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir docs" DISTRO=fedora-28
+  - TEST_PY_OPTS="--dir docs" DISTRO=fedora-29
+  - TEST_PY_OPTS="--dir docs" DISTRO=fedora-rawhide
+  - TEST_PY_OPTS="--dir docs" DISTRO=opensuse-leap-42
+  - TEST_PY_OPTS="--dir docs" DISTRO=opensuse-leap-15
+  - TEST_PY_OPTS="--dir docs" DISTRO=opensuse-tumbleweed
+  - TEST_PY_OPTS="--dir docs" DISTRO=ubuntu-16.04
+  - TEST_PY_OPTS="--dir docs" DISTRO=ubuntu-18.04
+  - TEST_PY_OPTS="--dir docs" DISTRO=ubuntu-18.10
+  - TEST_PY_OPTS="--dir docs" DISTRO=ubuntu-19.04
   # default build
   - TEST_PY_OPTS="" DISTRO=alpine-3.6
   - TEST_PY_OPTS="" DISTRO=alpine-3.7

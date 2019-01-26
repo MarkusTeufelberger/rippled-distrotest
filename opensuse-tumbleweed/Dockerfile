@@ -24,6 +24,7 @@ RUN  zypper --non-interactive update \
   libboost_serialization1_68_0-devel \
   libboost_thread1_68_0-devel \
   libopenssl-devel \
+  doxygen \
   && git clone https://github.com/ripple/rippled.git /rippled \
   && git --version \
   && bash --version \
@@ -34,7 +35,8 @@ RUN  zypper --non-interactive update \
   && pkg-config --version \
   && gcc --version \
   && clang --version \
-  && protoc --version
+  && protoc --version \
+  && doxygen --version
 
 WORKDIR /rippled/Builds
 
