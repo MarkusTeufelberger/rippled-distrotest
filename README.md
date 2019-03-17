@@ -126,6 +126,10 @@ Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
 
 Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
 
+### 30
+
+Boost: 1.69.0 (https://apps.fedoraproject.org/packages/boost)
+
 ### Rawhide (Rolling Release)
 
 Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
