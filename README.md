@@ -24,19 +24,14 @@ Currently supported: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases
 
 Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.6)
 
-Requires musl compatibility patches.
-
 ### 3.7
 
 Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.7)
-
-Requires musl compatibility patches.
 
 ### 3.8
 
 Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
 
-Requires musl compatibility patches.
 ### 3.9
 
 Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
@@ -49,9 +44,9 @@ Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
-Upstream: https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled
+Upstream rippled package: 1.1.2 (https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled)
 
-One of the few distros that at least have an actual rippled package upstream (in community).
+One of the few distros that at least have an actual rippled package upstream.
 It requires a few patches that still weren't released in rippled so far (https://github.com/alpinelinux/aports/tree/master/community/rippled).
 
 ## Arch Linux
@@ -64,7 +59,7 @@ Boost: 1.69.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
-Upstream: https://aur.archlinux.org/packages/rippled/
+Upstream: 1.2.0 (https://aur.archlinux.org/packages/rippled/)
 
 Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
 
@@ -132,7 +127,7 @@ Boost: 1.69.0 (https://apps.fedoraproject.org/packages/boost)
 
 ### Rawhide (Rolling Release)
 
-Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
+Boost: 1.69.0 (https://apps.fedoraproject.org/packages/boost)
 
 Currently ships without `/usr/bin/python`, but has `/usr/bin/python3` installed.
 
