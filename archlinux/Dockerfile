@@ -1,4 +1,4 @@
-FROM archimg/base
+FROM archlinux/base
 
 # Update the OS to current packages, install dependencies, clone repo
 RUN  pacman -Syu --noconfirm \
