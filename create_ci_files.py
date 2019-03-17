@@ -39,7 +39,6 @@ broken_distros = [
     "debian-stretch",
     "fedora-28",
     "fedora-29",
-    "fedora-rawhide",
     "opensuse-leap-42",
     "opensuse-leap-15",
     "ubuntu-16.04",
@@ -73,14 +72,6 @@ travis_test_py_opts = [
      "gcc debug nonstatic ninja build with TSAN enabled"),
     ("--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address",
      "gcc debug nonstatic ninja build with ASAN enabled"),
-    ("--dir clang.release.nounity --generator_option=-GNinja",
-     "clang release nounity ninja build"),
-    ("--dir gcc.release.nounity --generator_option=-GNinja",
-     "gcc release nounity ninja build"),
-    ("--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja",
-     "clang release nonstatic nounity ninja build"),
-    ("--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja",
-     "gcc release nonstatic nounity ninja build"),
 ]
 
 with open(".travis.yml", "w") as travisfile:
