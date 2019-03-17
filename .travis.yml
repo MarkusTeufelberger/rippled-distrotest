@@ -10,6 +10,7 @@ env:
   - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.6
   - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.7
   - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.8
+  - TEST_PY_OPTS="--dir docs" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir docs" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir docs" DISTRO=archlinux
   - TEST_PY_OPTS="--dir docs" DISTRO=centos-7
@@ -19,6 +20,7 @@ env:
   - TEST_PY_OPTS="--dir docs" DISTRO=debian-sid
   - TEST_PY_OPTS="--dir docs" DISTRO=fedora-28
   - TEST_PY_OPTS="--dir docs" DISTRO=fedora-29
+  - TEST_PY_OPTS="--dir docs" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir docs" DISTRO=fedora-rawhide
   - TEST_PY_OPTS="--dir docs" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--dir docs" DISTRO=opensuse-leap-15
@@ -31,6 +33,7 @@ env:
   - TEST_PY_OPTS="" DISTRO=alpine-3.6
   - TEST_PY_OPTS="" DISTRO=alpine-3.7
   - TEST_PY_OPTS="" DISTRO=alpine-3.8
+  - TEST_PY_OPTS="" DISTRO=alpine-3.9
   - TEST_PY_OPTS="" DISTRO=alpine-edge
   - TEST_PY_OPTS="" DISTRO=archlinux
   - TEST_PY_OPTS="" DISTRO=centos-7
@@ -40,6 +43,7 @@ env:
   - TEST_PY_OPTS="" DISTRO=debian-sid
   - TEST_PY_OPTS="" DISTRO=fedora-28
   - TEST_PY_OPTS="" DISTRO=fedora-29
+  - TEST_PY_OPTS="" DISTRO=fedora-30
   - TEST_PY_OPTS="" DISTRO=fedora-rawhide
   - TEST_PY_OPTS="" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="" DISTRO=opensuse-leap-15
@@ -52,6 +56,7 @@ env:
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.6
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.7
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.8
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=alpine-edge
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=archlinux
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=centos-7
@@ -61,6 +66,7 @@ env:
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=debian-sid
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-28
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-29
+  - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-30
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=fedora-rawhide
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-42
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=opensuse-leap-15
@@ -70,130 +76,162 @@ env:
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--generator_option=-Dstatic=OFF" DISTRO=ubuntu-19.04
   # clang release build
+  - TEST_PY_OPTS="--dir clang.release" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.release" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.release" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.release" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.release" DISTRO=ubuntu-19.04
   # gcc release build
+  - TEST_PY_OPTS="--dir gcc.release" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.release" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.release" DISTRO=ubuntu-19.04
   # clang release nonstatic build
+  - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-19.04
   # gcc release nonstatic build
+  - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.release --generator_option=-Dstatic=OFF" DISTRO=ubuntu-19.04
   # clang debug ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-19.04
   # clang debug ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-19.04
   # gcc debug ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-19.04
   # gcc debug ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-19.04
   # clang debug nonstatic ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-19.04
   # clang debug nonstatic ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-19.04
   # gcc debug nonstatic ninja build with TSAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=thread" DISTRO=ubuntu-19.04
   # gcc debug nonstatic ninja build with ASAN enabled
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.debug --generator_option=-Dstatic=OFF --generator_option=-GNinja --generator_option=-Dsan=address" DISTRO=ubuntu-19.04
   # clang release nounity ninja build
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-19.04
   # gcc release nounity ninja build
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-GNinja" DISTRO=ubuntu-19.04
   # clang release nonstatic nounity ninja build
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir clang.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-19.04
   # gcc release nonstatic nounity ninja build
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=alpine-3.9
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=alpine-edge
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=archlinux
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=debian-buster
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=debian-sid
+  - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=fedora-30
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=opensuse-tumbleweed
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-18.10
   - TEST_PY_OPTS="--dir gcc.release.nounity --generator_option=-Dstatic=OFF --generator_option=-GNinja" DISTRO=ubuntu-19.04
