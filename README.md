@@ -37,6 +37,11 @@ Requires musl compatibility patches.
 Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
 
 Requires musl compatibility patches.
+### 3.9
+
+Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
+
+Upstream rippled package: 1.1.2 (https://pkgs.alpinelinux.org/package/v3.9/community/x86_64/rippled)
 
 ### Edge (Rolling Release)
 
