@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 distros = [
-    "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",
     "alpine-3.9",
@@ -12,12 +11,12 @@ distros = [
     "debian-stretch",
     "debian-buster",
     "debian-sid",
-    "fedora-28",
     "fedora-29",
     "fedora-30",
     "fedora-rawhide",
-    "opensuse-leap-42",
-    "opensuse-leap-15",
+    "opensuse-leap-42.3",
+    "opensuse-leap-15.0",
+    "opensuse-leap-15.1",
     "opensuse-tumbleweed",
     "ubuntu-16.04",
     "ubuntu-18.04",
@@ -28,7 +27,6 @@ distros = [
 # these don't even manage to build the default build
 broken_distros = [
     # boost too old and not backported
-    "alpine-3.6",
     "alpine-3.7",
     "alpine-3.8",
     # pretty much everything too old
@@ -37,10 +35,10 @@ broken_distros = [
     "debian-jessie",
     # boost too old and not backported
     "debian-stretch",
-    "fedora-28",
     "fedora-29",
-    "opensuse-leap-42",
-    "opensuse-leap-15",
+    "opensuse-leap-42.3",
+    "opensuse-leap-15.0",
+    "opensuse-leap-15.1",
     "ubuntu-16.04",
     "ubuntu-18.04",
 ]

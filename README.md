@@ -20,10 +20,6 @@ Status at the moment:
 
 Currently supported: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases
 
-### 3.6
-
-Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.6)
-
 ### 3.7
 
 Boost: 1.62.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.7)
@@ -34,17 +30,17 @@ Boost: 1.66.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
 
 ### 3.9
 
-Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.8)
+Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=v3.9)
 
 Upstream rippled package: 1.1.2 (https://pkgs.alpinelinux.org/package/v3.9/community/x86_64/rippled)
 
 ### Edge (Rolling Release)
 
-Boost: 1.67.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
+Boost: 1.69.0 (https://pkgs.alpinelinux.org/packages?name=boost&branch=edge)
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
-Upstream rippled package: 1.1.2 (https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled)
+Upstream rippled package: 1.2.4 (https://pkgs.alpinelinux.org/package/edge/community/x86_64/rippled)
 
 One of the few distros that at least have an actual rippled package upstream.
 It requires a few patches that still weren't released in rippled so far (https://github.com/alpinelinux/aports/tree/master/community/rippled).
@@ -59,7 +55,7 @@ Boost: 1.69.0 (https://www.archlinux.org/packages/extra/x86_64/boost/)
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
-Upstream: 1.2.0 (https://aur.archlinux.org/packages/rippled/)
+Upstream: 1.2.2 (https://aur.archlinux.org/packages/rippled/)
 
 Not 100% "upstream" (the AUR is more of a collection of build scripts and open for anyone to contribute), but at least some build script is available and maintained.
 
@@ -113,10 +109,6 @@ Boost: 1.67.0 (https://packages.debian.org/sid/libboost-all-dev)
 
 Currently supported: https://fedoraproject.org/wiki/Releases#Current_Supported_Releases
 
-### 28
-
-Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
-
 ### 29
 
 Boost: 1.66.0 (https://apps.fedoraproject.org/packages/boost)
@@ -137,6 +129,8 @@ Not a hard build dependency for `rippled`.
 
 Currently supported: https://en.opensuse.org/Lifetime
 
+Boost was split into tons of individual sub-packages (https://lists.opensuse.org/opensuse-factory/2017-02/msg00024.html).
+
 ### Leap (42.3)
 
 Boost: 1.61.0 (https://software.opensuse.org/package/boost)
@@ -145,13 +139,13 @@ Boost: 1.61.0 (https://software.opensuse.org/package/boost)
 
 Boost: 1.66.0 (https://software.opensuse.org/package/boost)
 
-Boost is split into tons of individual sub-packages (https://lists.opensuse.org/opensuse-factory/2017-02/msg00024.html).
+### Leap (15.1)
+
+Boost: 1.66.0 (https://software.opensuse.org/package/boost)
 
 ### Tumbleweed (Rolling Release)
 
 Boost: 1.69.0 (https://software.opensuse.org/package/boost-base)
-
-Boost is split into tons of individual sub-packages (https://lists.opensuse.org/opensuse-factory/2017-02/msg00024.html).
 
 Does not ship static libraries, so `-Dstatic=OFF` as build option is required.
 
@@ -177,3 +171,7 @@ Boost: 1.67.0 (https://packages.ubuntu.com/cosmic/libboost-all-dev)
 ### 19.04 - Disco Dingo
 
 Boost: 1.67.0 (https://packages.ubuntu.com/disco/libboost-all-dev)
+
+### 19.10 - Eoan Ermine
+
+Boost: 1.67.0 (https://packages.ubuntu.com/eoan/libboost-all-dev)

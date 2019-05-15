@@ -4,22 +4,6 @@
 # Job dependencies: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=vsts&tabs=yaml#job-status-functions
 # Matrix build strategy: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=vsts&tabs=yaml#multi-configuration
 jobs:
-- job: alpine_3_6_static_smoketest
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
-      cd alpine-3.6
-      docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
-- job: alpine_3_6_nonstatic_smoketest
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
-      cd alpine-3.6
-      docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: alpine_3_7_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -180,22 +164,6 @@ jobs:
       cd debian-sid
       docker build --pull --no-cache -t rippled/debian-sid .
       docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
-- job: fedora_28_static_smoketest
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
-      cd fedora-28
-      docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
-- job: fedora_28_nonstatic_smoketest
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
-      cd fedora-28
-      docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: fedora_29_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -244,38 +212,54 @@ jobs:
       cd fedora-rawhide
       docker build --pull --no-cache -t rippled/fedora-rawhide .
       docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
-- job: opensuse_leap_42_static_smoketest
+- job: opensuse_leap_42_3_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: |
-      cd opensuse-leap-42
-      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
-- job: opensuse_leap_42_nonstatic_smoketest
+      cd opensuse-leap-42.3
+      docker build --pull --no-cache -t rippled/opensuse-leap-42.3 .
+      docker run --rm -t rippled/opensuse-leap-42.3 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
+- job: opensuse_leap_42_3_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: |
-      cd opensuse-leap-42
-      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
-- job: opensuse_leap_15_static_smoketest
+      cd opensuse-leap-42.3
+      docker build --pull --no-cache -t rippled/opensuse-leap-42.3 .
+      docker run --rm -t rippled/opensuse-leap-42.3 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
+- job: opensuse_leap_15_0_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: |
-      cd opensuse-leap-15
-      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
-- job: opensuse_leap_15_nonstatic_smoketest
+      cd opensuse-leap-15.0
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.0 .
+      docker run --rm -t rippled/opensuse-leap-15.0 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
+- job: opensuse_leap_15_0_nonstatic_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: |
-      cd opensuse-leap-15
-      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
+      cd opensuse-leap-15.0
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.0 .
+      docker run --rm -t rippled/opensuse-leap-15.0 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
+- job: opensuse_leap_15_1_static_smoketest
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - script: |
+      cd opensuse-leap-15.1
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.1 .
+      docker run --rm -t rippled/opensuse-leap-15.1 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=ON --generator_option=-GNinja"
+- job: opensuse_leap_15_1_nonstatic_smoketest
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - script: |
+      cd opensuse-leap-15.1
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.1 .
+      docker run --rm -t rippled/opensuse-leap-15.1 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 - job: opensuse_tumbleweed_static_smoketest
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -357,190 +341,6 @@ jobs:
       docker build --pull --no-cache -t rippled/ubuntu-19.04 .
       docker run --rm -t rippled/ubuntu-19.04 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-Dstatic=OFF --generator_option=-GNinja"
 # actual matrix builds start here
-- job: alpine_3_6_static_matrix
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine_3_6_static_smoketest
-  condition: succeeded()
-  strategy:
-    matrix:
-      alpine_3_6_static_gcc_debug_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.nounity
-      alpine_3_6_static_gcc_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      alpine_3_6_static_gcc_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      alpine_3_6_static_gcc_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      alpine_3_6_static_gcc_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      alpine_3_6_static_gcc_debug_unity:
-        TEST_PY_OPTS: --dir gcc.debug.unity
-      alpine_3_6_static_gcc_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      alpine_3_6_static_gcc_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      alpine_3_6_static_gcc_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      alpine_3_6_static_gcc_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      alpine_3_6_static_gcc_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      alpine_3_6_static_gcc_debug_coverage_unity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      alpine_3_6_static_gcc_release_nounity:
-        TEST_PY_OPTS: --dir gcc.release.nounity
-      alpine_3_6_static_gcc_release_unity:
-        TEST_PY_OPTS: --dir gcc.release.unity
-      alpine_3_6_static_gcc_debug_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      alpine_3_6_static_gcc_debug_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      alpine_3_6_static_gcc_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      alpine_3_6_static_gcc_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      alpine_3_6_static_gcc_release_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      alpine_3_6_static_gcc_release_unity_profile:
-        TEST_PY_OPTS: --dir gcc.release.unity.profile
-      alpine_3_6_static_clang_debug_nounity:
-        TEST_PY_OPTS: --dir clang.debug.nounity
-      alpine_3_6_static_clang_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      alpine_3_6_static_clang_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      alpine_3_6_static_clang_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      alpine_3_6_static_clang_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      alpine_3_6_static_clang_debug_unity:
-        TEST_PY_OPTS: --dir clang.debug.unity
-      alpine_3_6_static_clang_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      alpine_3_6_static_clang_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      alpine_3_6_static_clang_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      alpine_3_6_static_clang_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      alpine_3_6_static_clang_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      alpine_3_6_static_clang_debug_coverage_unity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      alpine_3_6_static_clang_release_nounity:
-        TEST_PY_OPTS: --dir clang.release.nounity
-      alpine_3_6_static_clang_release_unity:
-        TEST_PY_OPTS: --dir clang.release.unity
-      alpine_3_6_static_clang_debug_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      alpine_3_6_static_clang_debug_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.unity.profile
-      alpine_3_6_static_clang_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      alpine_3_6_static_clang_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      alpine_3_6_static_clang_release_nounity_profile:
-        TEST_PY_OPTS: --dir clang.release.nounity.profile
-      alpine_3_6_static_clang_release_unity_profile:
-        TEST_PY_OPTS: --dir clang.release.unity.profile
-  steps:
-  - script: |
-      cd alpine-3.6
-      docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
-- job: alpine_3_6_nonstatic_matrix
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  dependsOn: alpine_3_6_nonstatic_smoketest
-  condition: succeeded()
-  strategy:
-    matrix:
-      alpine_3_6_nonstatic_gcc_debug_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.nounity
-      alpine_3_6_nonstatic_gcc_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      alpine_3_6_nonstatic_gcc_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      alpine_3_6_nonstatic_gcc_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      alpine_3_6_nonstatic_gcc_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      alpine_3_6_nonstatic_gcc_debug_unity:
-        TEST_PY_OPTS: --dir gcc.debug.unity
-      alpine_3_6_nonstatic_gcc_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      alpine_3_6_nonstatic_gcc_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      alpine_3_6_nonstatic_gcc_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      alpine_3_6_nonstatic_gcc_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      alpine_3_6_nonstatic_gcc_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      alpine_3_6_nonstatic_gcc_debug_coverage_unity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      alpine_3_6_nonstatic_gcc_release_nounity:
-        TEST_PY_OPTS: --dir gcc.release.nounity
-      alpine_3_6_nonstatic_gcc_release_unity:
-        TEST_PY_OPTS: --dir gcc.release.unity
-      alpine_3_6_nonstatic_gcc_debug_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      alpine_3_6_nonstatic_gcc_debug_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      alpine_3_6_nonstatic_gcc_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      alpine_3_6_nonstatic_gcc_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      alpine_3_6_nonstatic_gcc_release_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      alpine_3_6_nonstatic_gcc_release_unity_profile:
-        TEST_PY_OPTS: --dir gcc.release.unity.profile
-      alpine_3_6_nonstatic_clang_debug_nounity:
-        TEST_PY_OPTS: --dir clang.debug.nounity
-      alpine_3_6_nonstatic_clang_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      alpine_3_6_nonstatic_clang_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      alpine_3_6_nonstatic_clang_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      alpine_3_6_nonstatic_clang_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      alpine_3_6_nonstatic_clang_debug_unity:
-        TEST_PY_OPTS: --dir clang.debug.unity
-      alpine_3_6_nonstatic_clang_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      alpine_3_6_nonstatic_clang_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      alpine_3_6_nonstatic_clang_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      alpine_3_6_nonstatic_clang_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      alpine_3_6_nonstatic_clang_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      alpine_3_6_nonstatic_clang_debug_coverage_unity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      alpine_3_6_nonstatic_clang_release_nounity:
-        TEST_PY_OPTS: --dir clang.release.nounity
-      alpine_3_6_nonstatic_clang_release_unity:
-        TEST_PY_OPTS: --dir clang.release.unity
-      alpine_3_6_nonstatic_clang_debug_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      alpine_3_6_nonstatic_clang_debug_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.unity.profile
-      alpine_3_6_nonstatic_clang_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      alpine_3_6_nonstatic_clang_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      alpine_3_6_nonstatic_clang_release_nounity_profile:
-        TEST_PY_OPTS: --dir clang.release.nounity.profile
-      alpine_3_6_nonstatic_clang_release_unity_profile:
-        TEST_PY_OPTS: --dir clang.release.unity.profile
-  steps:
-  - script: |
-      cd alpine-3.6
-      docker build --pull --no-cache -t rippled/alpine-3.6 .
-      docker run --rm -t rippled/alpine-3.6 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
 - job: alpine_3_7_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -2381,190 +2181,6 @@ jobs:
       cd debian-sid
       docker build --pull --no-cache -t rippled/debian-sid .
       docker run --rm -t rippled/debian-sid /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
-- job: fedora_28_static_matrix
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora_28_static_smoketest
-  condition: succeeded()
-  strategy:
-    matrix:
-      fedora_28_static_gcc_debug_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.nounity
-      fedora_28_static_gcc_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      fedora_28_static_gcc_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      fedora_28_static_gcc_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      fedora_28_static_gcc_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      fedora_28_static_gcc_debug_unity:
-        TEST_PY_OPTS: --dir gcc.debug.unity
-      fedora_28_static_gcc_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      fedora_28_static_gcc_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      fedora_28_static_gcc_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      fedora_28_static_gcc_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      fedora_28_static_gcc_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      fedora_28_static_gcc_debug_coverage_unity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      fedora_28_static_gcc_release_nounity:
-        TEST_PY_OPTS: --dir gcc.release.nounity
-      fedora_28_static_gcc_release_unity:
-        TEST_PY_OPTS: --dir gcc.release.unity
-      fedora_28_static_gcc_debug_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      fedora_28_static_gcc_debug_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      fedora_28_static_gcc_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      fedora_28_static_gcc_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      fedora_28_static_gcc_release_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      fedora_28_static_gcc_release_unity_profile:
-        TEST_PY_OPTS: --dir gcc.release.unity.profile
-      fedora_28_static_clang_debug_nounity:
-        TEST_PY_OPTS: --dir clang.debug.nounity
-      fedora_28_static_clang_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      fedora_28_static_clang_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      fedora_28_static_clang_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      fedora_28_static_clang_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      fedora_28_static_clang_debug_unity:
-        TEST_PY_OPTS: --dir clang.debug.unity
-      fedora_28_static_clang_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      fedora_28_static_clang_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      fedora_28_static_clang_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      fedora_28_static_clang_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      fedora_28_static_clang_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      fedora_28_static_clang_debug_coverage_unity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      fedora_28_static_clang_release_nounity:
-        TEST_PY_OPTS: --dir clang.release.nounity
-      fedora_28_static_clang_release_unity:
-        TEST_PY_OPTS: --dir clang.release.unity
-      fedora_28_static_clang_debug_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      fedora_28_static_clang_debug_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.unity.profile
-      fedora_28_static_clang_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      fedora_28_static_clang_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      fedora_28_static_clang_release_nounity_profile:
-        TEST_PY_OPTS: --dir clang.release.nounity.profile
-      fedora_28_static_clang_release_unity_profile:
-        TEST_PY_OPTS: --dir clang.release.unity.profile
-  steps:
-  - script: |
-      cd fedora-28
-      docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
-- job: fedora_28_nonstatic_matrix
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  dependsOn: fedora_28_nonstatic_smoketest
-  condition: succeeded()
-  strategy:
-    matrix:
-      fedora_28_nonstatic_gcc_debug_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.nounity
-      fedora_28_nonstatic_gcc_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      fedora_28_nonstatic_gcc_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      fedora_28_nonstatic_gcc_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      fedora_28_nonstatic_gcc_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      fedora_28_nonstatic_gcc_debug_unity:
-        TEST_PY_OPTS: --dir gcc.debug.unity
-      fedora_28_nonstatic_gcc_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      fedora_28_nonstatic_gcc_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      fedora_28_nonstatic_gcc_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      fedora_28_nonstatic_gcc_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      fedora_28_nonstatic_gcc_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      fedora_28_nonstatic_gcc_debug_coverage_unity:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      fedora_28_nonstatic_gcc_release_nounity:
-        TEST_PY_OPTS: --dir gcc.release.nounity
-      fedora_28_nonstatic_gcc_release_unity:
-        TEST_PY_OPTS: --dir gcc.release.unity
-      fedora_28_nonstatic_gcc_debug_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      fedora_28_nonstatic_gcc_debug_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      fedora_28_nonstatic_gcc_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      fedora_28_nonstatic_gcc_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      fedora_28_nonstatic_gcc_release_nounity_profile:
-        TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      fedora_28_nonstatic_gcc_release_unity_profile:
-        TEST_PY_OPTS: --dir gcc.release.unity.profile
-      fedora_28_nonstatic_clang_debug_nounity:
-        TEST_PY_OPTS: --dir clang.debug.nounity
-      fedora_28_nonstatic_clang_debug_nounity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      fedora_28_nonstatic_clang_debug_nounity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      fedora_28_nonstatic_clang_debug_nounity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      fedora_28_nonstatic_clang_debug_nounity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      fedora_28_nonstatic_clang_debug_unity:
-        TEST_PY_OPTS: --dir clang.debug.unity
-      fedora_28_nonstatic_clang_debug_unity_sanitize_address:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      fedora_28_nonstatic_clang_debug_unity_sanitize_thread:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      fedora_28_nonstatic_clang_debug_unity_sanitize_memory:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      fedora_28_nonstatic_clang_debug_unity_sanitize_undefined:
-        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      fedora_28_nonstatic_clang_debug_coverage_nounity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      fedora_28_nonstatic_clang_debug_coverage_unity:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      fedora_28_nonstatic_clang_release_nounity:
-        TEST_PY_OPTS: --dir clang.release.nounity
-      fedora_28_nonstatic_clang_release_unity:
-        TEST_PY_OPTS: --dir clang.release.unity
-      fedora_28_nonstatic_clang_debug_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      fedora_28_nonstatic_clang_debug_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.unity.profile
-      fedora_28_nonstatic_clang_debug_coverage_nounity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      fedora_28_nonstatic_clang_debug_coverage_unity_profile:
-        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      fedora_28_nonstatic_clang_release_nounity_profile:
-        TEST_PY_OPTS: --dir clang.release.nounity.profile
-      fedora_28_nonstatic_clang_release_unity_profile:
-        TEST_PY_OPTS: --dir clang.release.unity.profile
-  steps:
-  - script: |
-      cd fedora-28
-      docker build --pull --no-cache -t rippled/fedora-28 .
-      docker run --rm -t rippled/fedora-28 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
 - job: fedora_29_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
@@ -3117,374 +2733,558 @@ jobs:
       cd fedora-rawhide
       docker build --pull --no-cache -t rippled/fedora-rawhide .
       docker run --rm -t rippled/fedora-rawhide /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
-- job: opensuse_leap_42_static_matrix
+- job: opensuse_leap_42_3_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse_leap_42_static_smoketest
+  dependsOn: opensuse_leap_42_3_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
-      opensuse_leap_42_static_gcc_debug_nounity:
+      opensuse_leap_42_3_static_gcc_debug_nounity:
         TEST_PY_OPTS: --dir gcc.debug.nounity
-      opensuse_leap_42_static_gcc_debug_nounity_sanitize_address:
+      opensuse_leap_42_3_static_gcc_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_42_static_gcc_debug_nounity_sanitize_thread:
+      opensuse_leap_42_3_static_gcc_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_42_static_gcc_debug_nounity_sanitize_memory:
+      opensuse_leap_42_3_static_gcc_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_42_static_gcc_debug_nounity_sanitize_undefined:
+      opensuse_leap_42_3_static_gcc_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_42_static_gcc_debug_unity:
+      opensuse_leap_42_3_static_gcc_debug_unity:
         TEST_PY_OPTS: --dir gcc.debug.unity
-      opensuse_leap_42_static_gcc_debug_unity_sanitize_address:
+      opensuse_leap_42_3_static_gcc_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_42_static_gcc_debug_unity_sanitize_thread:
+      opensuse_leap_42_3_static_gcc_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_42_static_gcc_debug_unity_sanitize_memory:
+      opensuse_leap_42_3_static_gcc_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_42_static_gcc_debug_unity_sanitize_undefined:
+      opensuse_leap_42_3_static_gcc_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_42_static_gcc_debug_coverage_nounity:
+      opensuse_leap_42_3_static_gcc_debug_coverage_nounity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      opensuse_leap_42_static_gcc_debug_coverage_unity:
+      opensuse_leap_42_3_static_gcc_debug_coverage_unity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      opensuse_leap_42_static_gcc_release_nounity:
+      opensuse_leap_42_3_static_gcc_release_nounity:
         TEST_PY_OPTS: --dir gcc.release.nounity
-      opensuse_leap_42_static_gcc_release_unity:
+      opensuse_leap_42_3_static_gcc_release_unity:
         TEST_PY_OPTS: --dir gcc.release.unity
-      opensuse_leap_42_static_gcc_debug_nounity_profile:
+      opensuse_leap_42_3_static_gcc_debug_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      opensuse_leap_42_static_gcc_debug_unity_profile:
+      opensuse_leap_42_3_static_gcc_debug_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      opensuse_leap_42_static_gcc_debug_coverage_nounity_profile:
+      opensuse_leap_42_3_static_gcc_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      opensuse_leap_42_static_gcc_debug_coverage_unity_profile:
+      opensuse_leap_42_3_static_gcc_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      opensuse_leap_42_static_gcc_release_nounity_profile:
+      opensuse_leap_42_3_static_gcc_release_nounity_profile:
         TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      opensuse_leap_42_static_gcc_release_unity_profile:
+      opensuse_leap_42_3_static_gcc_release_unity_profile:
         TEST_PY_OPTS: --dir gcc.release.unity.profile
-      opensuse_leap_42_static_clang_debug_nounity:
+      opensuse_leap_42_3_static_clang_debug_nounity:
         TEST_PY_OPTS: --dir clang.debug.nounity
-      opensuse_leap_42_static_clang_debug_nounity_sanitize_address:
+      opensuse_leap_42_3_static_clang_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_42_static_clang_debug_nounity_sanitize_thread:
+      opensuse_leap_42_3_static_clang_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_42_static_clang_debug_nounity_sanitize_memory:
+      opensuse_leap_42_3_static_clang_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_42_static_clang_debug_nounity_sanitize_undefined:
+      opensuse_leap_42_3_static_clang_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_42_static_clang_debug_unity:
+      opensuse_leap_42_3_static_clang_debug_unity:
         TEST_PY_OPTS: --dir clang.debug.unity
-      opensuse_leap_42_static_clang_debug_unity_sanitize_address:
+      opensuse_leap_42_3_static_clang_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_42_static_clang_debug_unity_sanitize_thread:
+      opensuse_leap_42_3_static_clang_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_42_static_clang_debug_unity_sanitize_memory:
+      opensuse_leap_42_3_static_clang_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_42_static_clang_debug_unity_sanitize_undefined:
+      opensuse_leap_42_3_static_clang_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_42_static_clang_debug_coverage_nounity:
+      opensuse_leap_42_3_static_clang_debug_coverage_nounity:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      opensuse_leap_42_static_clang_debug_coverage_unity:
+      opensuse_leap_42_3_static_clang_debug_coverage_unity:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      opensuse_leap_42_static_clang_release_nounity:
+      opensuse_leap_42_3_static_clang_release_nounity:
         TEST_PY_OPTS: --dir clang.release.nounity
-      opensuse_leap_42_static_clang_release_unity:
+      opensuse_leap_42_3_static_clang_release_unity:
         TEST_PY_OPTS: --dir clang.release.unity
-      opensuse_leap_42_static_clang_debug_nounity_profile:
+      opensuse_leap_42_3_static_clang_debug_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      opensuse_leap_42_static_clang_debug_unity_profile:
+      opensuse_leap_42_3_static_clang_debug_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.unity.profile
-      opensuse_leap_42_static_clang_debug_coverage_nounity_profile:
+      opensuse_leap_42_3_static_clang_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      opensuse_leap_42_static_clang_debug_coverage_unity_profile:
+      opensuse_leap_42_3_static_clang_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      opensuse_leap_42_static_clang_release_nounity_profile:
+      opensuse_leap_42_3_static_clang_release_nounity_profile:
         TEST_PY_OPTS: --dir clang.release.nounity.profile
-      opensuse_leap_42_static_clang_release_unity_profile:
+      opensuse_leap_42_3_static_clang_release_unity_profile:
         TEST_PY_OPTS: --dir clang.release.unity.profile
   steps:
   - script: |
-      cd opensuse-leap-42
-      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
-- job: opensuse_leap_42_nonstatic_matrix
+      cd opensuse-leap-42.3
+      docker build --pull --no-cache -t rippled/opensuse-leap-42.3 .
+      docker run --rm -t rippled/opensuse-leap-42.3 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
+- job: opensuse_leap_42_3_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse_leap_42_nonstatic_smoketest
+  dependsOn: opensuse_leap_42_3_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
-      opensuse_leap_42_nonstatic_gcc_debug_nounity:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity:
         TEST_PY_OPTS: --dir gcc.debug.nounity
-      opensuse_leap_42_nonstatic_gcc_debug_nounity_sanitize_address:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_42_nonstatic_gcc_debug_nounity_sanitize_thread:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_42_nonstatic_gcc_debug_nounity_sanitize_memory:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_42_nonstatic_gcc_debug_nounity_sanitize_undefined:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_42_nonstatic_gcc_debug_unity:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity:
         TEST_PY_OPTS: --dir gcc.debug.unity
-      opensuse_leap_42_nonstatic_gcc_debug_unity_sanitize_address:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_42_nonstatic_gcc_debug_unity_sanitize_thread:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_42_nonstatic_gcc_debug_unity_sanitize_memory:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_42_nonstatic_gcc_debug_unity_sanitize_undefined:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_42_nonstatic_gcc_debug_coverage_nounity:
+      opensuse_leap_42_3_nonstatic_gcc_debug_coverage_nounity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      opensuse_leap_42_nonstatic_gcc_debug_coverage_unity:
+      opensuse_leap_42_3_nonstatic_gcc_debug_coverage_unity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      opensuse_leap_42_nonstatic_gcc_release_nounity:
+      opensuse_leap_42_3_nonstatic_gcc_release_nounity:
         TEST_PY_OPTS: --dir gcc.release.nounity
-      opensuse_leap_42_nonstatic_gcc_release_unity:
+      opensuse_leap_42_3_nonstatic_gcc_release_unity:
         TEST_PY_OPTS: --dir gcc.release.unity
-      opensuse_leap_42_nonstatic_gcc_debug_nounity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_debug_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      opensuse_leap_42_nonstatic_gcc_debug_unity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_debug_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      opensuse_leap_42_nonstatic_gcc_debug_coverage_nounity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      opensuse_leap_42_nonstatic_gcc_debug_coverage_unity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      opensuse_leap_42_nonstatic_gcc_release_nounity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_release_nounity_profile:
         TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      opensuse_leap_42_nonstatic_gcc_release_unity_profile:
+      opensuse_leap_42_3_nonstatic_gcc_release_unity_profile:
         TEST_PY_OPTS: --dir gcc.release.unity.profile
-      opensuse_leap_42_nonstatic_clang_debug_nounity:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity:
         TEST_PY_OPTS: --dir clang.debug.nounity
-      opensuse_leap_42_nonstatic_clang_debug_nounity_sanitize_address:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_42_nonstatic_clang_debug_nounity_sanitize_thread:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_42_nonstatic_clang_debug_nounity_sanitize_memory:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_42_nonstatic_clang_debug_nounity_sanitize_undefined:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_42_nonstatic_clang_debug_unity:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity:
         TEST_PY_OPTS: --dir clang.debug.unity
-      opensuse_leap_42_nonstatic_clang_debug_unity_sanitize_address:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_42_nonstatic_clang_debug_unity_sanitize_thread:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_42_nonstatic_clang_debug_unity_sanitize_memory:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_42_nonstatic_clang_debug_unity_sanitize_undefined:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_42_nonstatic_clang_debug_coverage_nounity:
+      opensuse_leap_42_3_nonstatic_clang_debug_coverage_nounity:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      opensuse_leap_42_nonstatic_clang_debug_coverage_unity:
+      opensuse_leap_42_3_nonstatic_clang_debug_coverage_unity:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      opensuse_leap_42_nonstatic_clang_release_nounity:
+      opensuse_leap_42_3_nonstatic_clang_release_nounity:
         TEST_PY_OPTS: --dir clang.release.nounity
-      opensuse_leap_42_nonstatic_clang_release_unity:
+      opensuse_leap_42_3_nonstatic_clang_release_unity:
         TEST_PY_OPTS: --dir clang.release.unity
-      opensuse_leap_42_nonstatic_clang_debug_nounity_profile:
+      opensuse_leap_42_3_nonstatic_clang_debug_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      opensuse_leap_42_nonstatic_clang_debug_unity_profile:
+      opensuse_leap_42_3_nonstatic_clang_debug_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.unity.profile
-      opensuse_leap_42_nonstatic_clang_debug_coverage_nounity_profile:
+      opensuse_leap_42_3_nonstatic_clang_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      opensuse_leap_42_nonstatic_clang_debug_coverage_unity_profile:
+      opensuse_leap_42_3_nonstatic_clang_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      opensuse_leap_42_nonstatic_clang_release_nounity_profile:
+      opensuse_leap_42_3_nonstatic_clang_release_nounity_profile:
         TEST_PY_OPTS: --dir clang.release.nounity.profile
-      opensuse_leap_42_nonstatic_clang_release_unity_profile:
+      opensuse_leap_42_3_nonstatic_clang_release_unity_profile:
         TEST_PY_OPTS: --dir clang.release.unity.profile
   steps:
   - script: |
-      cd opensuse-leap-42
-      docker build --pull --no-cache -t rippled/opensuse-leap-42 .
-      docker run --rm -t rippled/opensuse-leap-42 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
-- job: opensuse_leap_15_static_matrix
+      cd opensuse-leap-42.3
+      docker build --pull --no-cache -t rippled/opensuse-leap-42.3 .
+      docker run --rm -t rippled/opensuse-leap-42.3 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
+- job: opensuse_leap_15_0_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse_leap_15_static_smoketest
+  dependsOn: opensuse_leap_15_0_static_smoketest
   condition: succeeded()
   strategy:
     matrix:
-      opensuse_leap_15_static_gcc_debug_nounity:
+      opensuse_leap_15_0_static_gcc_debug_nounity:
         TEST_PY_OPTS: --dir gcc.debug.nounity
-      opensuse_leap_15_static_gcc_debug_nounity_sanitize_address:
+      opensuse_leap_15_0_static_gcc_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_15_static_gcc_debug_nounity_sanitize_thread:
+      opensuse_leap_15_0_static_gcc_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_15_static_gcc_debug_nounity_sanitize_memory:
+      opensuse_leap_15_0_static_gcc_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_15_static_gcc_debug_nounity_sanitize_undefined:
+      opensuse_leap_15_0_static_gcc_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_15_static_gcc_debug_unity:
+      opensuse_leap_15_0_static_gcc_debug_unity:
         TEST_PY_OPTS: --dir gcc.debug.unity
-      opensuse_leap_15_static_gcc_debug_unity_sanitize_address:
+      opensuse_leap_15_0_static_gcc_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_15_static_gcc_debug_unity_sanitize_thread:
+      opensuse_leap_15_0_static_gcc_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_15_static_gcc_debug_unity_sanitize_memory:
+      opensuse_leap_15_0_static_gcc_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_15_static_gcc_debug_unity_sanitize_undefined:
+      opensuse_leap_15_0_static_gcc_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_15_static_gcc_debug_coverage_nounity:
+      opensuse_leap_15_0_static_gcc_debug_coverage_nounity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      opensuse_leap_15_static_gcc_debug_coverage_unity:
+      opensuse_leap_15_0_static_gcc_debug_coverage_unity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      opensuse_leap_15_static_gcc_release_nounity:
+      opensuse_leap_15_0_static_gcc_release_nounity:
         TEST_PY_OPTS: --dir gcc.release.nounity
-      opensuse_leap_15_static_gcc_release_unity:
+      opensuse_leap_15_0_static_gcc_release_unity:
         TEST_PY_OPTS: --dir gcc.release.unity
-      opensuse_leap_15_static_gcc_debug_nounity_profile:
+      opensuse_leap_15_0_static_gcc_debug_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      opensuse_leap_15_static_gcc_debug_unity_profile:
+      opensuse_leap_15_0_static_gcc_debug_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      opensuse_leap_15_static_gcc_debug_coverage_nounity_profile:
+      opensuse_leap_15_0_static_gcc_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      opensuse_leap_15_static_gcc_debug_coverage_unity_profile:
+      opensuse_leap_15_0_static_gcc_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      opensuse_leap_15_static_gcc_release_nounity_profile:
+      opensuse_leap_15_0_static_gcc_release_nounity_profile:
         TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      opensuse_leap_15_static_gcc_release_unity_profile:
+      opensuse_leap_15_0_static_gcc_release_unity_profile:
         TEST_PY_OPTS: --dir gcc.release.unity.profile
-      opensuse_leap_15_static_clang_debug_nounity:
+      opensuse_leap_15_0_static_clang_debug_nounity:
         TEST_PY_OPTS: --dir clang.debug.nounity
-      opensuse_leap_15_static_clang_debug_nounity_sanitize_address:
+      opensuse_leap_15_0_static_clang_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_15_static_clang_debug_nounity_sanitize_thread:
+      opensuse_leap_15_0_static_clang_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_15_static_clang_debug_nounity_sanitize_memory:
+      opensuse_leap_15_0_static_clang_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_15_static_clang_debug_nounity_sanitize_undefined:
+      opensuse_leap_15_0_static_clang_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_15_static_clang_debug_unity:
+      opensuse_leap_15_0_static_clang_debug_unity:
         TEST_PY_OPTS: --dir clang.debug.unity
-      opensuse_leap_15_static_clang_debug_unity_sanitize_address:
+      opensuse_leap_15_0_static_clang_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_15_static_clang_debug_unity_sanitize_thread:
+      opensuse_leap_15_0_static_clang_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_15_static_clang_debug_unity_sanitize_memory:
+      opensuse_leap_15_0_static_clang_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_15_static_clang_debug_unity_sanitize_undefined:
+      opensuse_leap_15_0_static_clang_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_15_static_clang_debug_coverage_nounity:
+      opensuse_leap_15_0_static_clang_debug_coverage_nounity:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      opensuse_leap_15_static_clang_debug_coverage_unity:
+      opensuse_leap_15_0_static_clang_debug_coverage_unity:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      opensuse_leap_15_static_clang_release_nounity:
+      opensuse_leap_15_0_static_clang_release_nounity:
         TEST_PY_OPTS: --dir clang.release.nounity
-      opensuse_leap_15_static_clang_release_unity:
+      opensuse_leap_15_0_static_clang_release_unity:
         TEST_PY_OPTS: --dir clang.release.unity
-      opensuse_leap_15_static_clang_debug_nounity_profile:
+      opensuse_leap_15_0_static_clang_debug_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      opensuse_leap_15_static_clang_debug_unity_profile:
+      opensuse_leap_15_0_static_clang_debug_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.unity.profile
-      opensuse_leap_15_static_clang_debug_coverage_nounity_profile:
+      opensuse_leap_15_0_static_clang_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      opensuse_leap_15_static_clang_debug_coverage_unity_profile:
+      opensuse_leap_15_0_static_clang_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      opensuse_leap_15_static_clang_release_nounity_profile:
+      opensuse_leap_15_0_static_clang_release_nounity_profile:
         TEST_PY_OPTS: --dir clang.release.nounity.profile
-      opensuse_leap_15_static_clang_release_unity_profile:
+      opensuse_leap_15_0_static_clang_release_unity_profile:
         TEST_PY_OPTS: --dir clang.release.unity.profile
   steps:
   - script: |
-      cd opensuse-leap-15
-      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
-- job: opensuse_leap_15_nonstatic_matrix
+      cd opensuse-leap-15.0
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.0 .
+      docker run --rm -t rippled/opensuse-leap-15.0 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
+- job: opensuse_leap_15_0_nonstatic_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
-  dependsOn: opensuse_leap_15_nonstatic_smoketest
+  dependsOn: opensuse_leap_15_0_nonstatic_smoketest
   condition: succeeded()
   strategy:
     matrix:
-      opensuse_leap_15_nonstatic_gcc_debug_nounity:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity:
         TEST_PY_OPTS: --dir gcc.debug.nounity
-      opensuse_leap_15_nonstatic_gcc_debug_nounity_sanitize_address:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_15_nonstatic_gcc_debug_nounity_sanitize_thread:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_15_nonstatic_gcc_debug_nounity_sanitize_memory:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_15_nonstatic_gcc_debug_nounity_sanitize_undefined:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_15_nonstatic_gcc_debug_unity:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity:
         TEST_PY_OPTS: --dir gcc.debug.unity
-      opensuse_leap_15_nonstatic_gcc_debug_unity_sanitize_address:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_15_nonstatic_gcc_debug_unity_sanitize_thread:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_15_nonstatic_gcc_debug_unity_sanitize_memory:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_15_nonstatic_gcc_debug_unity_sanitize_undefined:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_15_nonstatic_gcc_debug_coverage_nounity:
+      opensuse_leap_15_0_nonstatic_gcc_debug_coverage_nounity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
-      opensuse_leap_15_nonstatic_gcc_debug_coverage_unity:
+      opensuse_leap_15_0_nonstatic_gcc_debug_coverage_unity:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity
-      opensuse_leap_15_nonstatic_gcc_release_nounity:
+      opensuse_leap_15_0_nonstatic_gcc_release_nounity:
         TEST_PY_OPTS: --dir gcc.release.nounity
-      opensuse_leap_15_nonstatic_gcc_release_unity:
+      opensuse_leap_15_0_nonstatic_gcc_release_unity:
         TEST_PY_OPTS: --dir gcc.release.unity
-      opensuse_leap_15_nonstatic_gcc_debug_nounity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_debug_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.nounity.profile
-      opensuse_leap_15_nonstatic_gcc_debug_unity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_debug_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.unity.profile
-      opensuse_leap_15_nonstatic_gcc_debug_coverage_nounity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
-      opensuse_leap_15_nonstatic_gcc_debug_coverage_unity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
-      opensuse_leap_15_nonstatic_gcc_release_nounity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_release_nounity_profile:
         TEST_PY_OPTS: --dir gcc.release.nounity.profile
-      opensuse_leap_15_nonstatic_gcc_release_unity_profile:
+      opensuse_leap_15_0_nonstatic_gcc_release_unity_profile:
         TEST_PY_OPTS: --dir gcc.release.unity.profile
-      opensuse_leap_15_nonstatic_clang_debug_nounity:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity:
         TEST_PY_OPTS: --dir clang.debug.nounity
-      opensuse_leap_15_nonstatic_clang_debug_nounity_sanitize_address:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
-      opensuse_leap_15_nonstatic_clang_debug_nounity_sanitize_thread:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
-      opensuse_leap_15_nonstatic_clang_debug_nounity_sanitize_memory:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
-      opensuse_leap_15_nonstatic_clang_debug_nounity_sanitize_undefined:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
-      opensuse_leap_15_nonstatic_clang_debug_unity:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity:
         TEST_PY_OPTS: --dir clang.debug.unity
-      opensuse_leap_15_nonstatic_clang_debug_unity_sanitize_address:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity_sanitize_address:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
-      opensuse_leap_15_nonstatic_clang_debug_unity_sanitize_thread:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity_sanitize_thread:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
-      opensuse_leap_15_nonstatic_clang_debug_unity_sanitize_memory:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity_sanitize_memory:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
-      opensuse_leap_15_nonstatic_clang_debug_unity_sanitize_undefined:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity_sanitize_undefined:
         TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
-      opensuse_leap_15_nonstatic_clang_debug_coverage_nounity:
+      opensuse_leap_15_0_nonstatic_clang_debug_coverage_nounity:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity
-      opensuse_leap_15_nonstatic_clang_debug_coverage_unity:
+      opensuse_leap_15_0_nonstatic_clang_debug_coverage_unity:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity
-      opensuse_leap_15_nonstatic_clang_release_nounity:
+      opensuse_leap_15_0_nonstatic_clang_release_nounity:
         TEST_PY_OPTS: --dir clang.release.nounity
-      opensuse_leap_15_nonstatic_clang_release_unity:
+      opensuse_leap_15_0_nonstatic_clang_release_unity:
         TEST_PY_OPTS: --dir clang.release.unity
-      opensuse_leap_15_nonstatic_clang_debug_nounity_profile:
+      opensuse_leap_15_0_nonstatic_clang_debug_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.nounity.profile
-      opensuse_leap_15_nonstatic_clang_debug_unity_profile:
+      opensuse_leap_15_0_nonstatic_clang_debug_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.unity.profile
-      opensuse_leap_15_nonstatic_clang_debug_coverage_nounity_profile:
+      opensuse_leap_15_0_nonstatic_clang_debug_coverage_nounity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
-      opensuse_leap_15_nonstatic_clang_debug_coverage_unity_profile:
+      opensuse_leap_15_0_nonstatic_clang_debug_coverage_unity_profile:
         TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
-      opensuse_leap_15_nonstatic_clang_release_nounity_profile:
+      opensuse_leap_15_0_nonstatic_clang_release_nounity_profile:
         TEST_PY_OPTS: --dir clang.release.nounity.profile
-      opensuse_leap_15_nonstatic_clang_release_unity_profile:
+      opensuse_leap_15_0_nonstatic_clang_release_unity_profile:
         TEST_PY_OPTS: --dir clang.release.unity.profile
   steps:
   - script: |
-      cd opensuse-leap-15
-      docker build --pull --no-cache -t rippled/opensuse-leap-15 .
-      docker run --rm -t rippled/opensuse-leap-15 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
+      cd opensuse-leap-15.0
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.0 .
+      docker run --rm -t rippled/opensuse-leap-15.0 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
+- job: opensuse_leap_15_1_static_matrix
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  dependsOn: opensuse_leap_15_1_static_smoketest
+  condition: succeeded()
+  strategy:
+    matrix:
+      opensuse_leap_15_1_static_gcc_debug_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.nounity
+      opensuse_leap_15_1_static_gcc_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
+      opensuse_leap_15_1_static_gcc_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_static_gcc_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_static_gcc_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_static_gcc_debug_unity:
+        TEST_PY_OPTS: --dir gcc.debug.unity
+      opensuse_leap_15_1_static_gcc_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
+      opensuse_leap_15_1_static_gcc_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_static_gcc_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_static_gcc_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_static_gcc_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
+      opensuse_leap_15_1_static_gcc_debug_coverage_unity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
+      opensuse_leap_15_1_static_gcc_release_nounity:
+        TEST_PY_OPTS: --dir gcc.release.nounity
+      opensuse_leap_15_1_static_gcc_release_unity:
+        TEST_PY_OPTS: --dir gcc.release.unity
+      opensuse_leap_15_1_static_gcc_debug_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
+      opensuse_leap_15_1_static_gcc_debug_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.unity.profile
+      opensuse_leap_15_1_static_gcc_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
+      opensuse_leap_15_1_static_gcc_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
+      opensuse_leap_15_1_static_gcc_release_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.release.nounity.profile
+      opensuse_leap_15_1_static_gcc_release_unity_profile:
+        TEST_PY_OPTS: --dir gcc.release.unity.profile
+      opensuse_leap_15_1_static_clang_debug_nounity:
+        TEST_PY_OPTS: --dir clang.debug.nounity
+      opensuse_leap_15_1_static_clang_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
+      opensuse_leap_15_1_static_clang_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_static_clang_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_static_clang_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_static_clang_debug_unity:
+        TEST_PY_OPTS: --dir clang.debug.unity
+      opensuse_leap_15_1_static_clang_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
+      opensuse_leap_15_1_static_clang_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_static_clang_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_static_clang_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_static_clang_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
+      opensuse_leap_15_1_static_clang_debug_coverage_unity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity
+      opensuse_leap_15_1_static_clang_release_nounity:
+        TEST_PY_OPTS: --dir clang.release.nounity
+      opensuse_leap_15_1_static_clang_release_unity:
+        TEST_PY_OPTS: --dir clang.release.unity
+      opensuse_leap_15_1_static_clang_debug_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.nounity.profile
+      opensuse_leap_15_1_static_clang_debug_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.unity.profile
+      opensuse_leap_15_1_static_clang_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
+      opensuse_leap_15_1_static_clang_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
+      opensuse_leap_15_1_static_clang_release_nounity_profile:
+        TEST_PY_OPTS: --dir clang.release.nounity.profile
+      opensuse_leap_15_1_static_clang_release_unity_profile:
+        TEST_PY_OPTS: --dir clang.release.unity.profile
+  steps:
+  - script: |
+      cd opensuse-leap-15.1
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.1 .
+      docker run --rm -t rippled/opensuse-leap-15.1 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=ON $TEST_PY_OPTS"
+- job: opensuse_leap_15_1_nonstatic_matrix
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  dependsOn: opensuse_leap_15_1_nonstatic_smoketest
+  condition: succeeded()
+  strategy:
+    matrix:
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.nounity
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=address
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.nounity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity:
+        TEST_PY_OPTS: --dir gcc.debug.unity
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=address
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir gcc.debug.unity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_nonstatic_gcc_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity
+      opensuse_leap_15_1_nonstatic_gcc_debug_coverage_unity:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity
+      opensuse_leap_15_1_nonstatic_gcc_release_nounity:
+        TEST_PY_OPTS: --dir gcc.release.nounity
+      opensuse_leap_15_1_nonstatic_gcc_release_unity:
+        TEST_PY_OPTS: --dir gcc.release.unity
+      opensuse_leap_15_1_nonstatic_gcc_debug_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.nounity.profile
+      opensuse_leap_15_1_nonstatic_gcc_debug_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.unity.profile
+      opensuse_leap_15_1_nonstatic_gcc_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.nounity.profile
+      opensuse_leap_15_1_nonstatic_gcc_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir gcc.debug.coverage.unity.profile
+      opensuse_leap_15_1_nonstatic_gcc_release_nounity_profile:
+        TEST_PY_OPTS: --dir gcc.release.nounity.profile
+      opensuse_leap_15_1_nonstatic_gcc_release_unity_profile:
+        TEST_PY_OPTS: --dir gcc.release.unity.profile
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity:
+        TEST_PY_OPTS: --dir clang.debug.nounity
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=address
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.nounity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_nonstatic_clang_debug_unity:
+        TEST_PY_OPTS: --dir clang.debug.unity
+      opensuse_leap_15_1_nonstatic_clang_debug_unity_sanitize_address:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=address
+      opensuse_leap_15_1_nonstatic_clang_debug_unity_sanitize_thread:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=thread
+      opensuse_leap_15_1_nonstatic_clang_debug_unity_sanitize_memory:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=memory
+      opensuse_leap_15_1_nonstatic_clang_debug_unity_sanitize_undefined:
+        TEST_PY_OPTS: --dir clang.debug.unity --generator_option=-Dsan=undefined
+      opensuse_leap_15_1_nonstatic_clang_debug_coverage_nounity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity
+      opensuse_leap_15_1_nonstatic_clang_debug_coverage_unity:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity
+      opensuse_leap_15_1_nonstatic_clang_release_nounity:
+        TEST_PY_OPTS: --dir clang.release.nounity
+      opensuse_leap_15_1_nonstatic_clang_release_unity:
+        TEST_PY_OPTS: --dir clang.release.unity
+      opensuse_leap_15_1_nonstatic_clang_debug_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.nounity.profile
+      opensuse_leap_15_1_nonstatic_clang_debug_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.unity.profile
+      opensuse_leap_15_1_nonstatic_clang_debug_coverage_nounity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.nounity.profile
+      opensuse_leap_15_1_nonstatic_clang_debug_coverage_unity_profile:
+        TEST_PY_OPTS: --dir clang.debug.coverage.unity.profile
+      opensuse_leap_15_1_nonstatic_clang_release_nounity_profile:
+        TEST_PY_OPTS: --dir clang.release.nounity.profile
+      opensuse_leap_15_1_nonstatic_clang_release_unity_profile:
+        TEST_PY_OPTS: --dir clang.release.unity.profile
+  steps:
+  - script: |
+      cd opensuse-leap-15.1
+      docker build --pull --no-cache -t rippled/opensuse-leap-15.1 .
+      docker run --rm -t rippled/opensuse-leap-15.1 /bin/bash -c "cd .. && ./Builds/Test.py -v --generator_option=-GNinja --generator_option=-Dstatic=OFF $TEST_PY_OPTS"
 - job: opensuse_tumbleweed_static_matrix
   pool:
     vmImage: 'Ubuntu 16.04'
